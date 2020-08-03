@@ -5,7 +5,6 @@ import pathlib
 import os
 from parsel import Selector
 
-
 path_to_driver = '/home/baltasar/Desktop/ScrapyBoy/kognita/kognita/scraper/geckodriver'
 driver = webdriver.Firefox(executable_path=path_to_driver)
 # STRUCTURE
@@ -54,22 +53,32 @@ def initial_search(keyword:str):
 def get_questions_links(page):
 	'''
 	Defines getting and creating absolutes links for the questions
-	:param page is the source_page wrapped by a parsel Selector class
-	:return questions_links are the fullpath link to the questions
+	:param page: is the source_page wrapped by a parsel Selector class
+	:return questions_links: is a list with the a full url to each question link
 	'''
 	questions_links = ['https://stackoverflow.com' + link for link in page.xpath("//a[@class='question-hyperlink']/@href").getall()]
 	return questions_links
 
-def get_date(page):
-
+def get_question_date(page):
+	'''
+	Defines the selection of the date in questions layout
+	:param page: is the source_page wrapped by a parsel Selector class
+	:return date: is an string
+	 '''
 	data = page.xpath('//div[contains(@class, "post-layout--right")]')\
 	.xpath('.//div[@class="user-action-time"]') \
 	.xpath('.//span[@class="relativetime"]//text()').getall()
 	data.reverse()
 	return data[0]
 
-def get_comment_question(question_comments):
-
+def get_comment_question(page):
+	'''
+	Defines the selection of the comment data in the question
+	:param page: is a source page with parsel Selector class wrapper
+	:return: comment_list: is the list of comment data
+	'''
+	question_body = page.xpath('//div[@class="post-layout"]')
+	question_comments = question_body.xpath('//div[contains(@class, "comment-body")]')
 	comment_list = []
 	for c in question_comments:
 		comment = {'text': "", 'author': "", 'time': ""}
@@ -79,39 +88,59 @@ def get_comment_question(question_comments):
 		comment_list.append(comment)	
 	return comment_list
 
-def get_answers_and_comments_from_asnwers(page):
+def get_answers_and_comments_from_answers(page):
+	'''
+	Defines the selection of all answer in the page selecting the data and also
+	getting all comments data in earch answer
+	:param page: is the source page with a parsel Selctor wrapper
+	:return all_answer_data: is  alist with the answer text, user, date and a list of comments
+	'''
+
 	answers = page.xpath('//div[@class="answer"]')
+	all_answer_data = []
 	for a in answers:
-		answer_text = ''.join(a.xpath('.//div[@class="post-text"]//text()').getall()))
+		answer_data = {'answer_text': "", 'answer_user': "", 'answer_date': "", 'answer_comments': ""}
+		answer_data['answer_text'] = ''.join(a.xpath('.//div[@class="post-text"]//text()').getall())
 		answer_user_info = a.xpath('.//div[contains(@class, "user-info")]')
-		answer_user = answer_user_info.xpath('.//div[@class="user-details"]/a/text()').get())
-		answer_data = answer_user_info.xpath('.//div[@class="user-action-time"]/span/text()').get())
+		answer_data['answer_use'] = answer_user_info.xpath('.//div[@class="user-details"]/a/text()').get()
+		answer_data['answer_date'] = answer_user_info.xpath('.//div[@class="user-action-time"]/span/text()').get()
 		comment_in_answer_list = a.xpath('.//div[contains(@class,"comment-body")]')
 		for i, comment_in_answer in enumerate(comment_in_answer_list):
 			comment_in_answer_text = comment_in_answer.xpath('.//span[@class="comment-copy"]/text()').get()
 			comment_in_answer_author = comment_in_answer.xpath('.//a[@class="comment-user"]/text()').get()
-			comment_in_answer_data = comment_in_answer.xpath('.//span[contains(@class, "relativetime")]/text()').get()
-			
+			comment_in_answer_date = comment_in_answer.xpath('.//span[contains(@class, "relativetime")]/text()').get()
+			comment_data = {'comment_text': comment_in_answer_text, 'comment_author': comment_in_answer_author,
+							'answer_date':comment_in_answer_date }
+			answer_data['answer_comments'] = comment_data
+		all_answer_data.append(answer_data)
+	return all_answer_data
 
-def get_question(page):
+
+
+def get_question_data(page):
 	'''
-	:param page is the source page with a parsel Slector wrapper
+	Defines the selection of the question data
+	:param page: is the source page with a parsel Selector class wrapper
+	:return question_data: is a dictionary with the data title, text. tags. date. and comments
 	'''
-	question = {'question_title':"", 'question_text':"", 'question_tags': "", 'question_date':"" , 'question_comments': ""}
+	question_data = {'question_title':"", 'question_text':"", 'question_tags': "", 'question_date':"" , 'question_comments': ""}
 	question_body = page.xpath('//div[@class="post-layout"]')
 	question['question_title'] = page.xpath('//div[@id="question-header"]').xpath('.//a[contains(@class, "question")]/text()').get()
 	question['question_text'] = ''.join(page.xpath('//div[@class="post-text"]').xpath('.//text()').getall())
 	question['question_tags'] = page.xpath('//div[@class="post-layout"]').xpath('.//a[contains(@class, "post-tag")]//text()').getall()
 	question['question_date'] = get_data(page_source)
 	question['question_comments'] = get_comment_question(question_body.xpath('//div[contains(@class, "comment-body")]'))
-	return question
+	return question_data
 
 if __name__ == "__main__":
 	# make the initial search
 	driver_source_page = initial_search('python')
-	# Get all links to questions in this page
 	page = Selector(driver_source_page)
 	all_questions_links = []
+	# Get all links to questions in this page
+	questions_links = get_questions_links(page)
+	# save the links
+	all_questions_links.append(questions_links)
 	for i in range(3):
 		# get the number of the current page
 		current_page = int(page.xpath('//div[contains(@class, "s-pagination--item is-selected")]//text()').get())
@@ -124,16 +153,18 @@ if __name__ == "__main__":
 			driver_source_page	= driver.get(next_page)
 			page = Selector(driver_source_page)
 			# Get all links to questions in this page
-			questions_links = get_questions_links(driver_source_page)
+			questions_links = get_questions_links(page)
 			# save the links in the main list
 			all_questions_links.append(questions_links)
 	# now we have all links, now is time for getting the data of each question
-	for link in all_questions_links():
-		driver.get(link)
+	for link_to_question in all_questions_links():
+		driver.get(link_to_question)
 		source_page = driver.page_source
 		page = Selector(source_page)
-		questions_links = get_questions_links(page)
-
+		question_data = get_question_data(page)
+		question_comment = get_comment_question()
+		answers_data_and_comments = get_answers_and_comments_from_answers(page)
+		
 
 
 		# for each question extract answer author text and day
