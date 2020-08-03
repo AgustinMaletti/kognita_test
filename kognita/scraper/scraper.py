@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 import pathlib
 import os
 from parsel import Selector
+from time import sleep
 
 path_to_driver = '/home/baltasar/Desktop/ScrapyBoy/kognita/kognita/scraper/geckodriver'
 driver = webdriver.Firefox(executable_path=path_to_driver)
@@ -15,23 +16,23 @@ dados = {"initial_search": {"search_query": "",
         "all_questions": [{ "question_title": "",
                             "question_preview_text": "",
                             "question_text": "",
-                            "question_autor": "",
-                            "question_data": "", 
+                            "question_author": "",
+                            "question_date": "",
                             "question_tags": "" ,
-                            "question_comments": [{ "comment": "",
-                                                    "comment_author":"",                                                    
-                                                    "comment_data": ""
+                            "question_comments": [{ "text": "",
+                                                    "author":"",
+                                                    "date": ""
 													}],
-                           "answer_text": "",
-                           "answer_author": "",
-                           "answer_data": "",
-                           "answer_comments": [{ "comment": "",
-                                                 "comment_author":"",
-                                                 "comment_data": ""
-												 }],
+          				   "all_answer": [{"answer_text": "",
+                          				   "answer_author": "",
+                           				   "answer_date": "",
+                           				   "answer_comments": [{ "text": "",
+                                            				     "author":"",
+                                                 				 "date": ""
+												 			   }],
+                         				  }]
                         }]
-                        }
-        }
+        }}
 
 def initial_search(keyword:str):
 	'''
@@ -71,7 +72,7 @@ def get_question_date(page):
 	data.reverse()
 	return data[0]
 
-def get_comment_question(page):
+def get_comment_question_list(page):
 	'''
 	Defines the selection of the comment data in the question
 	:param page: is a source page with parsel Selector class wrapper
@@ -81,10 +82,10 @@ def get_comment_question(page):
 	question_comments = question_body.xpath('//div[contains(@class, "comment-body")]')
 	comment_list = []
 	for c in question_comments:
-		comment = {'text': "", 'author': "", 'time': ""}
+		comment = {'text': "", 'author': "", 'date': ""}
 		comment['text'] = c.xpath('.//span[@class="comment-copy"]/text()').get()
 		comment['author'] = c.xpath('.//a[contains(@class, "comment-user")]/text()').get()
-		comment['time'] = c.xpath('.//span[contains(@class, "relativetime")]/text()').get()
+		comment['date'] = c.xpath('.//span[contains(@class, "relativetime")]/text()').get()
 		comment_list.append(comment)	
 	return comment_list
 
@@ -105,13 +106,15 @@ def get_answers_and_comments_from_answers(page):
 		answer_data['answer_use'] = answer_user_info.xpath('.//div[@class="user-details"]/a/text()').get()
 		answer_data['answer_date'] = answer_user_info.xpath('.//div[@class="user-action-time"]/span/text()').get()
 		comment_in_answer_list = a.xpath('.//div[contains(@class,"comment-body")]')
+		comments_in_answer = []
 		for i, comment_in_answer in enumerate(comment_in_answer_list):
 			comment_in_answer_text = comment_in_answer.xpath('.//span[@class="comment-copy"]/text()').get()
 			comment_in_answer_author = comment_in_answer.xpath('.//a[@class="comment-user"]/text()').get()
 			comment_in_answer_date = comment_in_answer.xpath('.//span[contains(@class, "relativetime")]/text()').get()
-			comment_data = {'comment_text': comment_in_answer_text, 'comment_author': comment_in_answer_author,
-							'answer_date':comment_in_answer_date }
-			answer_data['answer_comments'] = comment_data
+			comment_data = {'text': comment_in_answer_text, 'author': comment_in_answer_author,
+							'date': comment_in_answer_date }
+			comments_in_answer.append(comment_data)
+		answer_data['answer_comments'] = comments_in_answer
 		all_answer_data.append(answer_data)
 	return all_answer_data
 
@@ -156,15 +159,21 @@ if __name__ == "__main__":
 			questions_links = get_questions_links(page)
 			# save the links in the main list
 			all_questions_links.append(questions_links)
+			print(f'Getting question links on page {current_page}')
+			sleep(1)
+
 	# now we have all links, now is time for getting the data of each question
-	for link_to_question in all_questions_links():
+	for i, link_to_question in enumerate(all_questions_links()):
 		driver.get(link_to_question)
 		source_page = driver.page_source
 		page = Selector(source_page)
 		question_data = get_question_data(page)
-		question_comment = get_comment_question()
+		question_comment = get_comment_question_list()
 		answers_data_and_comments = get_answers_and_comments_from_answers(page)
-		
+		print(f'Getting question and answer data in question number {i}')
+		sleep(2)
+
+
 
 
 		# for each question extract answer author text and day

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e2ac5447-3849-4d04-a749-c776d88af32c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/kognita/scraper/scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita/scraper/scraper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kognita/scraper/scraper_development.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/kognita/scraper/scraper_development.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kognita/scraper/scraper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="166" column="8" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="8" />
+            <state relative-caret-position="330">
+              <caret line="22" column="47" lean-forward="true" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
               <folding>
                 <element signature="e#1#31#0" expanded="true" />
               </folding>
@@ -149,8 +148,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kognita/scraper/scraper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="166" column="8" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="8" />
+        <state relative-caret-position="330">
+          <caret line="22" column="47" lean-forward="true" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
           <folding>
             <element signature="e#1#31#0" expanded="true" />
           </folding>
