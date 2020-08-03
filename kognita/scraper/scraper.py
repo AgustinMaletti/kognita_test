@@ -49,7 +49,6 @@ def initial_search(keyword:str):
 	dados['inital_search']['search_text_result'] = page.xpath('//div[@class="mb24"]').xpath('.//p//text()').get()
 	return driver.page_source
 	
-	
 def parse_page(driver_page_source):
 	'''
 	Defines getting and creating absolutes links for the questions
@@ -59,17 +58,24 @@ def parse_page(driver_page_source):
 	questions_links = ['https://stackoverflow.com' +link for link in page.xpath("//a[@class='question-hyperlink']/@href").getall()]
 	return questions_links
 	
-	
-if __name-__ == "__main__":
-	, the title and the preview text, if the current page number is above 2 do it again	
-	all_questions_links= []
+all_questions_links= []	
+
+if __name__ == "__main__":
+	# the title and the preview text, if the current page number is above 2 do it again	
 	driver_source_page = initial_search('python')
 	# Get all links to questions
 	questions_links = parse_page(driver_source_page)
 	all_questions_links.append(questions_links)
 	current_page = page.xpath('//div[contains(@class, "s-pagination--item is-selected")]//text()').get()
+	next_href = page.xpath('//a[@rel="next"]//@href').get()
+	next_page = 'https://stackoverflow.com'' + next_href
 	if int(current_page) < 2:
-		
+		driver_ source_page	= driver.get(next_page)
+		questions_links = parse_page(driver_source_page)
+		all_questions_links.append(questions_links)
+	
+	for link in all_questions_links():
+		source_page
 
 
 
