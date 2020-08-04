@@ -8,6 +8,8 @@ import json
 
 path_to_driver = '/home/baltasar/Desktop/ScrapyBoy/kognita/kognita/scraper/geckodriver'
 driver = webdriver.Firefox(executable_path=path_to_driver)
+file_name_data = 'data.json'
+keyword = 'python'
 # DATA STRUCTURE
 """
 	Define the creation of the next data structure:
@@ -35,15 +37,40 @@ driver = webdriver.Firefox(executable_path=path_to_driver)
                         }
         }
 	"""
+def init_file(file_name:str):
+	'''
+	Defines the creation of an json file with an empy list inside
+	:param file_name: is the name of the json file
+
+	'''
+	with open(file_name, mode='w', encoding='utf-8') as file:
+		json.dump([], file)
+
+
+def append_to_json(file_name:str, data):
+	'''
+	Defines the loading and appending method used for updating the file
+	:param file_name: is the name of the json file to wich we append
+	:param data: is the dictionary of data we are appending	
+	'''
+	with open(file_name, 'r', encoding='utf-8') as feedjson:
+		feeds = json.load(feedjson)
+	with open(file_name, 'w', encoding='utf-8') as outfile:
+		feeds.append(data)
+		json.dump(feeds, outfile, ensure_ascii=False, indent=4)
+
 
 def create_dict():
+	'''
+	Defines the creation of a dict inside a dict for saving our data
+	'''
 	data = { "question": {
 						  }
 		    }
 
 	return data
 
-def initial_search(keyword):
+def initial_search(keyword:str):
 	'''
 	Define getting the page making the search and parseing some data, lastly return the questions links
 	:param keyword is the searching word in the search box of stack overflow
@@ -58,11 +85,22 @@ def initial_search(keyword):
 	print('Waiting 10, 9, 8...')
 	sleep(10)
 	# data
-	# data['initial_search']['search_query'] = keyword
+
 	page = Selector(driver.page_source)
-	# data['initial_search']['search_title_result'] = page.xpath('//h1//text()').get().strip()
-	# data['initial_search']['search_text_result'] = page.xpath('//div[@class="mb24"]').xpath('.//p//text()').get()
+
 	return page
+
+def save_search_data(keyword, file_name):
+	'''
+		Defines the saving of the initial searhc data
+	   :param keyword: is the keyword of the search
+	   :param file_name is the json file we are using for saving the data
+	'''
+	data = {}
+	data['search_query'] = keyword
+	data['search_title_result'] = page.xpath('//h1//text()').get().strip()
+	data['search_text_result'] = page.xpath('//div[@class="mb24"]').xpath('.//p//text()').get()
+	append_to_json(file_name, data)
 
 
 def get_questions_links(page):
@@ -155,8 +193,9 @@ def get_question_data(page):
 if __name__ == "__main__":
 	# make the initial search
 	print('Starting Stack Overflow Scraper')
-	page = initial_search('python')
-
+	init_file(file_name_data)
+	save_search_data(keyword, file_name_data)
+	page = initial_search(keyword)
 	all_questions_links = []
 	# Get all links to questions in this page
 	questions_links = get_questions_links(page)
@@ -185,7 +224,7 @@ if __name__ == "__main__":
 
 	print('I will start visiting links of question for getting the data')
 	# now we have all links, now is time for getting the data of each question
-	for i, link_to_question in enumerate(all_questions_links):
+	for i, link_to_question in enumerate(all_questions_links[:10]):
 		data = create_dict()
 		print(f'Going to link of question number {i+1}')
 		driver.get(link_to_question)
@@ -205,8 +244,7 @@ if __name__ == "__main__":
 		data['question'].update(answers_data_and_comments)
 
 		print('Appending data to json file')
-		with open('data.json', 'a') as outfile:
-			json.dump(data, outfile)
+		append_to_json(file_name_data, data)
 
 	print('Process finish Sr!')
 

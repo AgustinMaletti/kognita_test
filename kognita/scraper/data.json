@@ -1,86 +1,258 @@
 [
     {
-        "question_title": "",
-        "question_text": "",
-        "question_author": "",
-        "question_date": "",
-        "question_tags": "",
-        "question_comments": [
-            {
-                "text": "",
-                "author": "",
-                "date": ""
-            }
-        ],
-        "all_answer": [
-            {
-                "answer_text": "",
-                "answer_author": "",
-                "answer_date": "",
-                "answer_comments": [
-                    {
-                        "text": "",
-                        "author": "",
-                        "date": ""
-                    }
-                ]
-            }
-        ]
+        "question": {
+            "question_title": "Conversion of date formats",
+            "question_text": "\n                    \nI wanted to convert a list containing dates in the format:\n01 MAR 2020\nInto this format :\n2020-03-01 (YYYY-MM-DD)\nusing python.\nIs there a way to do this??\n    ",
+            "question_tags": [
+                "python",
+                "datetime",
+                "datetime-conversion"
+            ],
+            "question_date": "46 secs ago",
+            "question_comments": [],
+            "all_answer": []
+        }
     },
     {
-        "question_title": "",
-        "question_text": "",
-        "question_author": "",
-        "question_date": "",
-        "question_tags": "",
-        "question_comments": [
-            {
-                "text": "",
-                "author": "",
-                "date": ""
-            }
-        ],
-        "all_answer": [
-            {
-                "answer_text": "",
-                "answer_author": "",
-                "answer_date": "",
-                "answer_comments": [
-                    {
-                        "text": "",
-                        "author": "",
-                        "date": ""
-                    }
-                ]
-            }
-        ]
+        "question": {
+            "question_title": "i want my create view and list view on the same page",
+            "question_text": "\n                    \nI want my create view and list view on the same page and in my list view i only want login users post to show . With this code my create view works but in place of list view it does not show anything and it also does not show any error. How can i fix this. Thank you\nthis is my views.py:-\nfrom django.shortcuts import render\nfrom django.views.generic import ListView, CreateView\nfrom .models import simpleList\nfrom django.urls import reverse_lazy\n# Create your views here.\n\n\nclass CreateList(CreateView):\n    model = simpleList\n    template_name = 'create_list.html'\n    fields = ('title', )\n    success_url = reverse_lazy('create_list')\n\n    def form_valid(self, form):\n        form.instance.author = self.request.user\n        return super().form_valid(form)\n\n    def ListListView(request):\n        current_user = request.user\n        user_list = simpleList.objects.filter(author=current_user)\n        return user_list\nthis is my html:-\n{% extends 'base.html' %}\n\n{% block title %}Create{% endblock title %}\n\n{% block content %}\n<form method=\"POST\">{% csrf_token %}\n    {{ form.as_p }}\n    <button class=\"btn btn-info\" type=\"submit\">Add</button>\n</form>\n\n<h2>simpleList</h2>\n<table class=\"table table-hover\">\n    <thead>\n        <tr>\n            <th scope=\"col\">S.No</th>\n            <th scope=\"col\">Task</th>\n            <th scope=\"col\">Done</th>\n        </tr>\n    </thead>\n</table>\n<div>\n    {% for simpleList in user_list %}\n    <table class=\"table table-hover\">\n        <thead style=\"display: none;\">\n            <tr>\n                <th scope=\"col\">S.No</th>\n                <th scope=\"col\">Task</th>\n                <th scope=\"col\">Done</th>\n            </tr>\n        </thead>\n        <div>\n            <tbody>\n                <tr class=\"table-primary\">\n                    <th scope=\"row\">{{ simpleList.pk }}</th>\n                    <td style=\"max-width: 100px;  word-break: break-all;\">\n                        {{ simpleList.title }}\n                    </td>\n                    <td>\n                    </td>\n                </tr>\n            </tbody>\n        </div>\n    </table>\n</div>\n\n{% endfor %}\n\n{% endblock content %}\n    ",
+            "question_tags": [
+                "python",
+                "django"
+            ],
+            "question_date": "1 min ago",
+            "question_comments": [],
+            "all_answer": []
+        }
     },
     {
-        "question_title": "",
-        "question_text": "",
-        "question_author": "",
-        "question_date": "",
-        "question_tags": "",
-        "question_comments": [
-            {
-                "text": "",
-                "author": "",
-                "date": ""
-            }
-        ],
-        "all_answer": [
-            {
-                "answer_text": "",
-                "answer_author": "",
-                "answer_date": "",
-                "answer_comments": [
-                    {
-                        "text": "",
-                        "author": "",
-                        "date": ""
-                    }
-                ]
-            }
-        ]
+        "question": {
+            "question_title": "AI-Workflow-Business-Priorities-and-Data-Ingestion/ibm-ai-workflow-business-priorities-data-ingestion-Readiness Quiz.pdf",
+            "question_text": "\n                    \nPerform matrix multiplication on a square matrix HINT: A 2X2 matrix times a 2x2 matrix should yield a 2x2 matrix\ndef matrix_multiplication(A,B):\n'''\nINPUT: LIST (of length n) OF LIST (of length n) OF INTEGERS\nLIST (of length n) OF LIST (of length n) OF INTEGERS\nOUTPUT: LIST OF LIST OF INTEGERS\n(storing the product of a matrix multiplication operation)\nReturn the matrix which is the product of matrix A and matrix B\nwhere A and B will be (a) integer-valued (b) square matrices\n(c) of size n-by-n (d) encoded as lists of lists, e.g.\nA = [[2, 3, 4], [6, 4, 2], [-1, 2, 0]] corresponds to the matrix\n| 2 3 4 |\n| 6 4 2 |\n|-1 2 0 |\nYou may not use numpy. Write your solution in straight python\n    ",
+            "question_tags": [
+                "python",
+                "matrix"
+            ],
+            "question_date": "4 mins ago",
+            "question_comments": [
+                {
+                    "text": "This is homework. Please don't post homework or at least show what you've done so far.",
+                    "author": "Scotty1-",
+                    "date": "2 mins ago"
+                },
+                {
+                    "text": "I’m voting to close this question because no attempt at solution is provided.",
+                    "author": "vs97",
+                    "date": "2 mins ago"
+                }
+            ],
+            "all_answer": []
+        }
+    },
+    {
+        "question": {
+            "question_title": "Why the pycurl response is different on my nginx server compared to the response on my computer",
+            "question_text": "\n                    \nI use python pycurl for get this page https://www.instagram.com/nilliewinnie/?__a=1.\nOn my computer pycurl return json object (that I want) but on my nginx server they return a page with javascript and html (page with grey instagram logo on center of the page)\nIt's the same code on my computer and on my server :\n# -*- coding: utf-8 -*-\nimport pycurl\nimport certifi\nfrom io import BytesIO\n\nbuffer = BytesIO()\n\ncrl = pycurl.Curl()\ncrl.setopt(pycurl.CAINFO, certifi.where())\ncrl.setopt(crl.URL, 'https://www.instagram.com/nilliewinnie/?__a=1')\ncrl.setopt(crl.WRITEDATA, buffer)\ncrl.perform()\ncrl.close()\n\nprint(buffer.getvalue())\nWhere can it come from? I tried with resquets.get() and it's the same problem\nThanks for your help\n    ",
+            "question_tags": [
+                "python",
+                "request",
+                "instagram",
+                "pycurl"
+            ],
+            "question_date": "4 mins ago",
+            "question_comments": [],
+            "all_answer": []
+        }
+    },
+    {
+        "question": {
+            "question_title": "Odoo: Model uses sql view, odoo view page doesn't show anything",
+            "question_text": "\n                    \nI am trying to make a report where the user selects a product from a drop down list and it shows a table that has the following columns\ncreate date, stock quantity, incoming and outgoing quantities, supplier/customer , and price\nsince it has to get each field from a different model, i had to use sql views, but then when i load the odoo view it doesn't show any of the fields, i made sure the sql statments of the view works fine, and when examining the datatbase, the view is created, still nothing shows up on the view\ncode below\nfrom odoo import api, fields, models, tools, _\n\nclass ProductProfileReportView(models.Model):\n    _name = \"product.profile.report\"\n    _auto = False\n\n    action_type = fields.Char(string=\"Type\")\n    create_date = fields.Date(string=\"Date\")\n    invoice_id = fields.Many2one(comodel_name=\"custom.purchase\", string=\"Invoice\", required=False, )\n    qty = fields.Integer(string=\"Qty\")\n    supplier_id = fields.Many2one(comodel_name=\"custom.supplier\", string=\"Supplier\", required=False, )\n    price = fields.Float(string=\"Price\")\n\n    @api.model_cr\n    def init(self):\n        \"\"\" Event Question main report \"\"\"\n        tools.drop_view_if_exists(self._cr, 'product_profile_report')\n        self._cr.execute(\"\"\" CREATE OR REPLACE VIEW product_profile_report AS (\n            select p.id as id,\n            'Purchase' as action_type,\n            pu.create_date as create_date,\n            pu.id as invoice_id,\n            pul.qty as qty,\n            s.id as supplier_id,\n            p.sell_price as price\n            from\n            custom_product p\n            inner join custom_purchase_line pul\n            on p.id = pul.product_id\n            inner join custom_purchase pu\n            on pul.purchase_id = pu.id\n            inner join custom_supplier s\n            on pu.supplier_id = s.id)\"\"\")\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<odoo>\n    <record id=\"form_product_profile_report\" model=\"ir.ui.view\">\n        <field name=\"name\">product.profile.report.form</field>\n        <field name=\"model\">product.profile.report</field>\n        <field name=\"arch\" type=\"xml\">\n            <form string=\"\">\n                <sheet>\n                    <group>\n                        <fields name=\"action_type\"/>\n                        <fields name=\"create_date\"/>\n                        <fields name=\"invoice_id\"/>\n                        <fields name=\"qty\"/>\n                        <fields name=\"supplier_id\"/>\n                        <fields name=\"price\"/>\n                    </group>\n                </sheet>\n            </form>\n        </field>\n    </record>\n\n    <record id=\"action_product_profile_report\" model=\"ir.actions.act_window\">\n        <field name=\"name\">product profile report</field>\n        <field name=\"type\">ir.actions.act_window</field>\n        <field name=\"res_model\">product.profile.report</field>\n        <field name=\"view_mode\">form</field>\n        <field name=\"help\" type=\"html\">\n            <p class=\"oe_view_nocontent_create\"></p>\n        </field>\n    </record>\n\n    <menuitem id=\"report_item\" name=\"Reports\" parent=\"custom_product_root\"/>\n    <menuitem id=\"product_profile_report_submenu\" name=\"Product Profile\" parent=\"report_item\"\n              action=\"action_product_profile_report\"/>\n</odoo>\n    ",
+            "question_tags": [
+                "python",
+                "xml",
+                "odoo"
+            ],
+            "question_date": "5 mins ago",
+            "question_comments": [],
+            "all_answer": []
+        }
+    },
+    {
+        "question": {
+            "question_title": "hashlib.sha256 is giving me diffrent result for the same input, why is that?",
+            "question_text": "\n                    \nI will put my entire code below, heres my problem:\nIm trying to validate some values by hashing them, as we all know, if the value doesn't change, then we should get the same hash every time we hash them!\nbut I get a diffrent hash from my is_valid method! I know I made a mistake but I can't find it!\nfrom hashlib import sha256\nfrom itertools import count\n\n\nclass Block():\n\n    def __init__(self, data: str, prev_block_hash: str, test_func):\n        self.time_stamp = str(datetime.now())\n        self.data = data\n        self.prev_block_hash = prev_block_hash\n        self.hash_, self.salt = self.get_hash(test_func)\n\n    def get_hash(self, test_func):\n        hasher = sha256()\n        for salt in count():\n            hasher.update(bytes(self.data + self.time_stamp +\n                                self.prev_block_hash + str(salt),\n                          'utf-8'))\n            if test_func(hasher.hexdigest()):\n                print(bytes(self.data + self.time_stamp +\n                      self.prev_block_hash + str(salt), 'utf-8'))\n                return hasher.hexdigest(), str(salt)\n\n    def is_valid(self):\n        hasher = sha256()\n        hasher.update(bytes(self.data + self.time_stamp +\n                            self.prev_block_hash + self.salt,\n                      'utf-8'))\n        print(bytes(self.data + self.time_stamp +\n              self.prev_block_hash + self.salt, 'utf-8'))\n        return hasher.hexdigest() == self.hash_\nin my is_valid method, I get a diffrent hash with same input as in get_hash method, I tried to store the values together in a variable and try hashing them using that variable but it didn't work! why is that and how to solve it?!\n    ",
+            "question_tags": [
+                "python",
+                "python-3.x",
+                "hash",
+                "sha256",
+                "hashlib"
+            ],
+            "question_date": "8 mins ago",
+            "question_comments": [
+                {
+                    "text": "The functions are different, why do you expect that they create the same result?",
+                    "author": "mkrieger1",
+                    "date": "6 mins ago"
+                },
+                {
+                    "text": "Does this answer your question? ",
+                    "author": "DarkSuniuM",
+                    "date": "5 mins ago"
+                },
+                {
+                    "text": "which funtions are talkin about?! I'm using the same method for both of them (sha256.update)",
+                    "author": "amir",
+                    "date": "5 mins ago"
+                },
+                {
+                    "text": "You're passing different things into them, though.",
+                    "author": "AKX",
+                    "date": "5 mins ago"
+                },
+                {
+                    "text": "can you tell me the diffrence ?! @AKX",
+                    "author": "amir",
+                    "date": "3 mins ago"
+                }
+            ],
+            "all_answer": []
+        }
+    },
+    {
+        "question": {
+            "question_title": "Kivy - Why does the source image distort in this way when set as Button background_normal image?",
+            "question_text": "\n                    \nI am having an issue when placing an icon.png as the background_normal of a button within Kivy. When the image is displayed within the button there are black areas that stretch from the sides of the icon.  Some icons appear as the they are stretched forwards from the middle as well.  All icons used have a transparent background colour.\nI have ensured the source image is the same res (80x80px) as the button it is placed within. Also tried setting allow_stretch to False and kee_ration to True.  None seem to fix the issue.\nThis is how the icon should display\nThis is how it is being displayed within the button(ignore the brown canvas colour)\nBelow is the .kv section which creates the Button within a BoxLayout and then applies the source  image as the background\n<SettingsScreen>\nname: \"Settings\"\nsize: self.width, self.height\n\nBoxLayout:\n    size: root.width, root.height\n    cols:1\n    orientation: 'vertical'\n    spacing: 2\n    canvas.before:\n        Color:\n            rgba: hex('#D29F7C')\n        Rectangle:\n            size: self.size\n\n    BoxLayout:\n        size_hint: (None, None)\n        size: (1920, 80)\n        orientation: 'horizontal'\n\n        Button:\n            background_colour: 0, 0, 0, 0\n            background_normal: r'C:\\Users\\James\\Documents\\Coding\\Python\\Practice Projects\\Gardening App\\Icons\\Home.png'\n            allow_stretch: False\n            keep_ratio: True\n            size_hint: (None, None)\n            size: (80, 80)\n            canvas.before:\n                Color:\n                    rgba: hex('#AB9D92')\n                Rectangle:\n                    pos: self.pos\n                    size: self.size\n            bold: True\n            color: 0.7, 0.7, 0.7, 1\n            font_hinting: 'normal'\n            font_size: 40\n            font_name: 'calibril.ttf'\n            text: 'Menu'\n            on_release:\n                app.root.current = \"Menu\"\n                root.manager.transition.direction = 'right'\n    ",
+            "question_tags": [
+                "python",
+                "image",
+                "button",
+                "kivy"
+            ],
+            "question_date": "9 mins ago",
+            "question_comments": [],
+            "all_answer": []
+        }
+    },
+    {
+        "question": {
+            "question_title": "Can`t install open cv through pip3 on ubuntu 20",
+            "question_text": "\n                    \nI have been trying to install opencv through pip3, but its not working\ni have searched and they said its urllib related problem, yet i couldnt find anything like \"Bypass proxy settings hosts\" in Settings > Network\nPlease how can i solve this?\nError\nCollecting opencv-python\n  Downloading opencv_python-4.3.0.36-cp38-cp38-manylinux2014_x86_64.whl (43.7 MB)\n     |███████▋                        | 10.4 MB 360 kB/s eta 0:01:33ERROR: Exception:\nTraceback (most recent call last):\n  File \"/usr/share/python-wheels/urllib3-1.25.8-py2.py3-none-any.whl/urllib3/response.py\", line 425, in _error_catcher\n    yield\n  File \"/usr/share/python-wheels/urllib3-1.25.8-py2.py3-none-any.whl/urllib3/response.py\", line 507, in read\n    data = self._fp.read(amt) if not fp_closed else b\"\"\n  File \"/usr/share/python-wheels/CacheControl-0.12.6-py2.py3-none-any.whl/cachecontrol/filewrapper.py\", line 62, in read\n    data = self.__fp.read(amt)\n  File \"/usr/lib/python3.8/http/client.py\", line 454, in read\n    n = self.readinto(b)\n  File \"/usr/lib/python3.8/http/client.py\", line 498, in readinto\n    n = self.fp.readinto(b)\n  File \"/usr/lib/python3.8/socket.py\", line 669, in readinto\n    return self._sock.recv_into(b)\n  File \"/usr/lib/python3.8/ssl.py\", line 1241, in recv_into\n    return self.read(nbytes, buffer)\n  File \"/usr/lib/python3.8/ssl.py\", line 1099, in read\n    return self._sslobj.read(len, buffer)\nConnectionResetError: [Errno 104] Connection reset by peer\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/lib/python3/dist-packages/pip/_internal/cli/base_command.py\", line 186, in _main\n    status = self.run(options, args)\n  File \"/usr/lib/python3/dist-packages/pip/_internal/commands/install.py\", line 357, in run\n    resolver.resolve(requirement_set)\n  File \"/usr/lib/python3/dist-packages/pip/_internal/legacy_resolve.py\", line 177, in resolve\n    discovered_reqs.extend(self._resolve_one(requirement_set, req))\n  File \"/usr/lib/python3/dist-packages/pip/_internal/legacy_resolve.py\", line 333, in _resolve_one\n    abstract_dist = self._get_abstract_dist_for(req_to_install)\n  File \"/usr/lib/python3/dist-packages/pip/_internal/legacy_resolve.py\", line 282, in _get_abstract_dist_for\n    abstract_dist = self.preparer.prepare_linked_requirement(req)\n  File \"/usr/lib/python3/dist-packages/pip/_internal/operations/prepare.py\", line 480, in prepare_linked_requirement\n    local_path = unpack_url(\n  File \"/usr/lib/python3/dist-packages/pip/_internal/operations/prepare.py\", line 282, in unpack_url\n    return unpack_http_url(\n  File \"/usr/lib/python3/dist-packages/pip/_internal/operations/prepare.py\", line 158, in unpack_http_url\n    from_path, content_type = _download_http_url(\n  File \"/usr/lib/python3/dist-packages/pip/_internal/operations/prepare.py\", line 303, in _download_http_url\n    for chunk in download.chunks:\n  File \"/usr/lib/python3/dist-packages/pip/_internal/utils/ui.py\", line 160, in iter\n    for x in it:\n  File \"/usr/lib/python3/dist-packages/pip/_internal/network/utils.py\", line 15, in response_chunks\n    for chunk in response.raw.stream(\n  File \"/usr/share/python-wheels/urllib3-1.25.8-py2.py3-none-any.whl/urllib3/response.py\", line 564, in stream\n    data = self.read(amt=amt, decode_content=decode_content)\n  File \"/usr/share/python-wheels/urllib3-1.25.8-py2.py3-none-any.whl/urllib3/response.py\", line 529, in read\n    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)\n  File \"/usr/lib/python3.8/contextlib.py\", line 131, in __exit__\n    self.gen.throw(type, value, traceback)\n  File \"/usr/share/python-wheels/urllib3-1.25.8-py2.py3-none-any.whl/urllib3/response.py\", line 443, in _error_catcher\n    raise ProtocolError(\"Connection broken: %r\" % e, e)\nurllib3.exceptions.ProtocolError: (\"Connection broken: ConnectionResetError(104, 'Connection reset by peer')\", ConnectionResetError(104, 'Connection reset by peer'))\nNetwork window\n    ",
+            "question_tags": [
+                "python",
+                "opencv",
+                "proxy",
+                "pip",
+                "urllib"
+            ],
+            "question_date": "9 mins ago",
+            "question_comments": [
+                {
+                    "text": "Does this answer your question? ",
+                    "author": "Yunus Temurlenk",
+                    "date": "1 min ago"
+                }
+            ],
+            "all_answer": []
+        }
+    },
+    {
+        "question": {
+            "question_title": "Why the output of this python code is False?",
+            "question_text": "\n                    \na = [8,0,4,6]\nif a.reverse() == a[::-1]:\nprint(True)\nelse:\nprint(False)\n    \na.reverse() returns None.Its in place reverse.You can try reversed(a)\nIf its Python 3 , reversed will return generator, so you will again have to do [i for i in reversed(a)]\n    \nBecause list.reverse reverses the list in-place and returns None. What you are doing is this:\nif None == a[::-1]: # which is obviously not True\n    ",
+            "question_tags": [
+                "python",
+                "reverse"
+            ],
+            "question_date": "10 mins ago",
+            "question_comments": [
+                {
+                    "text": "Try ",
+                    "author": "Sayandip Dutta",
+                    "date": "11 mins ago"
+                },
+                {
+                    "text": " - because ",
+                    "author": "Tomerikoo",
+                    "date": "6 mins ago"
+                },
+                {
+                    "text": "Try ",
+                    "author": "Sayandip Dutta",
+                    "date": "11 mins ago"
+                },
+                {
+                    "text": " - because ",
+                    "author": "Tomerikoo",
+                    "date": "6 mins ago"
+                },
+                {
+                    "text": "Try ",
+                    "author": "Sayandip Dutta",
+                    "date": "11 mins ago"
+                },
+                {
+                    "text": " - because ",
+                    "author": "Tomerikoo",
+                    "date": "6 mins ago"
+                }
+            ],
+            "all_answer": [
+                {
+                    "answer_text": "\na.reverse() returns None.Its in place reverse.You can try reversed(a)\nIf its Python 3 , reversed will return generator, so you will again have to do [i for i in reversed(a)]\n    ",
+                    "answer_user": "",
+                    "answer_date": "11 mins ago",
+                    "answer_comments": [],
+                    "answer_use": "vks"
+                },
+                {
+                    "answer_text": "\nBecause list.reverse reverses the list in-place and returns None. What you are doing is this:\nif None == a[::-1]: # which is obviously not True\n    ",
+                    "answer_user": "",
+                    "answer_date": "10 mins ago",
+                    "answer_comments": [],
+                    "answer_use": "Asocia"
+                }
+            ]
+        }
+    },
+    {
+        "question": {
+            "question_title": "Python list operations with elements",
+            "question_text": "\n                    \nI was trying to operate with a list and a loop. The thing is that I have a list like the following a = [9, 3, 5, 2] and I want to subtract 1 to each element... So I have tried something like this\na = [9, 3, 5, 2]\nb = -1\nx = a - b\n    \nuse list comprehension\na = [9, 3, 5, 2]\nb = [x-1 for x in a]\noutput:\n[8, 2, 4, 1]\n    \nSomewhat beyond the scope of your actual question but you could use some magic functions to abstract away the details:\nclass MyCoolList(list):\n    def __sub__(self, other):\n        return [item - other for item in self]\n\n    def __add__(self, other):\n        return [item + other for item in self]\n\n    def __mul__(self, other):\n        return [item * other for item in self]\nNow we can do:\ncls = MyCoolList([9, 3, 5, 2])\n\nprint(cls - 1)\nprint(cls + 1)\nprint(cls * 2)\nWhich yields\n[8, 2, 4, 1]\n[10, 4, 6, 3]\n[18, 6, 10, 4]\n    \nSimple one liner using lambda and map\na = [9, 3, 5, 2]\nx = list(map(lambda i: i-1, a))\nprint(x)\n    ",
+            "question_tags": [
+                "python",
+                "python-3.x",
+                "database",
+                "list",
+                "analytics"
+            ],
+            "question_date": "just now",
+            "question_comments": [],
+            "all_answer": [
+                {
+                    "answer_text": "\nuse list comprehension\na = [9, 3, 5, 2]\nb = [x-1 for x in a]\noutput:\n[8, 2, 4, 1]\n    ",
+                    "answer_user": "",
+                    "answer_date": "10 mins ago",
+                    "answer_comments": [],
+                    "answer_use": "Zaraki Kenpachi"
+                },
+                {
+                    "answer_text": "\nSomewhat beyond the scope of your actual question but you could use some magic functions to abstract away the details:\nclass MyCoolList(list):\n    def __sub__(self, other):\n        return [item - other for item in self]\n\n    def __add__(self, other):\n        return [item + other for item in self]\n\n    def __mul__(self, other):\n        return [item * other for item in self]\nNow we can do:\ncls = MyCoolList([9, 3, 5, 2])\n\nprint(cls - 1)\nprint(cls + 1)\nprint(cls * 2)\nWhich yields\n[8, 2, 4, 1]\n[10, 4, 6, 3]\n[18, 6, 10, 4]\n    ",
+                    "answer_user": "",
+                    "answer_date": "5 mins ago",
+                    "answer_comments": [],
+                    "answer_use": "Jan"
+                },
+                {
+                    "answer_text": "\nSimple one liner using lambda and map\na = [9, 3, 5, 2]\nx = list(map(lambda i: i-1, a))\nprint(x)\n    ",
+                    "answer_user": "",
+                    "answer_date": "just now",
+                    "answer_comments": [],
+                    "answer_use": "Tasnuva"
+                }
+            ]
+        }
     }
 ]

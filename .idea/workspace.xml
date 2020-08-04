@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2ac5447-3849-4d04-a749-c776d88af32c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kognita/scraper/data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita/scraper/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/kognita/scraper/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kognita/scraper/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/kognita/scraper/geckodriver.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kognita/scraper/scraper_development.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/kognita/scraper/scraper_development.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita/scraper/scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita/scraper/scraper.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kognita/scraper/scraper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
-              <caret line="196" column="35" selection-start-line="196" selection-start-column="35" selection-end-line="196" selection-end-column="35" />
+            <state relative-caret-position="1095">
+              <caret line="94" column="53" selection-start-line="94" selection-start-column="53" selection-end-line="94" selection-end-column="53" />
               <folding>
                 <element signature="e#1#31#0" expanded="true" />
               </folding>
@@ -27,10 +26,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kognita/scraper/data.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-3245">
               <caret column="1" selection-start-column="1" selection-end-column="1" />
             </state>
           </provider>
@@ -74,8 +73,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/kognita/scraper/scraper.py" />
         <option value="$PROJECT_DIR$/kognita/scraper/data.json" />
+        <option value="$PROJECT_DIR$/kognita/scraper/scraper.py" />
       </list>
     </option>
   </component>
@@ -262,20 +261,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kognita/scraper/scraper.py">
+    <entry file="file://$PROJECT_DIR$/kognita/scraper/data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="196" column="35" selection-start-line="196" selection-start-column="35" selection-end-line="196" selection-end-column="35" />
-          <folding>
-            <element signature="e#1#31#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-3245">
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kognita/scraper/data.json">
+    <entry file="file://$PROJECT_DIR$/kognita/scraper/scraper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        <state relative-caret-position="1095">
+          <caret line="94" column="53" selection-start-line="94" selection-start-column="53" selection-end-line="94" selection-end-column="53" />
+          <folding>
+            <element signature="e#1#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -708,3 +708,118 @@ IPDL protocol error: Handler returned error code!
 JavaScript error: chrome://browser/content/browser-customization.js, line 172: NS_ERROR_NOT_INITIALIZED: 
 JavaScript error: , line 0: AbortError: A request was aborted, for example through a call to IDBTransaction.abort.
 1596539444876	Marionette	INFO	Stopped listening on port 46485
+1596542200096	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ZYRh7F7pwQo5"
+1596542212198	Marionette	INFO	Listening on port 35227
+1596542212360	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f115e3d80' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f15c11a60' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f15dcb6a0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f15dfd060' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f15dfd150' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f1567d0b0' of type 'MaiAtkType139'
+JavaScript error: https://tpc.googlesyndication.com/pagead/js/r20200730/r20110914/client/qs_click_protection_fy2019.js, line 11: NS_ERROR_NOT_INITIALIZED: 
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f1787fd80' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f15f11fb0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f113f96a0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f10c996f0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0faa3d30' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f10bbeab0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f10bef790' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f113f9b50' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f1026d240' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f1028c830' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0dc30ce0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0f9e17e0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0f9e11f0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0facb100' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f1026d0b0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f1026d0b0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f1028cce0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f10a40ab0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f10bef790' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f113f7a10' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0dcfe6a0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0f89c380' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0f9fed80' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f161feb00' of type 'MaiAtkType139'
+JavaScript error: https://tpc.googlesyndication.com/pagead/js/r20200730/r20110914/client/qs_click_protection_fy2019.js, line 11: NS_ERROR_NOT_INITIALIZED: 
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f1028cec0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f1022e560' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f1020af60' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0f8c1740' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0e67f740' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f1020aa60' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f1028cec0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9efd4cdd30' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0d2ce290' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0d2ced80' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0e93ad80' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0d667ba0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0d990150' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9efdca6dd0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0d94e920' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0dbb61f0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9efd4c76a0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0dc13bf0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f18c6d0b0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0daa7240' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0f89c6f0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f101bb7e0' of type 'MaiAtkType139'
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f11e5c830' of type 'MaiAtkType139'
+console.error: "Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers."
+
+(firefox:16289): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f9f0da53e20' of type 'MaiAtkType139'
+JavaScript error: resource://devtools/server/actors/webconsole/utils.js, line 417: SyntaxError: The expression is not a legal expression.
