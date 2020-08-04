@@ -302,3 +302,10 @@ console.error: "Store does not have a valid reducer. Make sure the argument pass
 (firefox:5646): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7faca609cba0' of type 'MaiAtkType139'
 
 (firefox:5646): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7fac955c4510' of type 'MaiAtkType139'
+1596499581277	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.IR742YAPrTKr"
+1596499610067	Marionette	INFO	Listening on port 38019
+1596499610691	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(firefox:24160): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f13650eb8d0' of type 'MaiAtkType139'
+
+(firefox:24160): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f13651c4650' of type 'MaiAtkType139'

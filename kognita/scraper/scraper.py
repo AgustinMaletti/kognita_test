@@ -1,8 +1,7 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import pathlib
-import os
+
 from parsel import Selector
 from time import sleep
 import json
@@ -37,9 +36,9 @@ data = {"initial_search": {"search_query": "",
 
 def initial_search(keyword, data):
 	'''
-	Define geting the page making the search and parseing some data, lastly return the questions links
+	Define getting the page making the search and parseing some data, lastly return the questions links
 	:param keyword is the searching word in the search box of stack overflow
-	:return question_links a list of full links to each question present in page
+	:return page is the source_page wrapped by a parsel Selector class
 	
 	'''
 	driver.get('https://stackoverflow.com/')
@@ -47,10 +46,10 @@ def initial_search(keyword, data):
 	driver.find_element_by_xpath('//input[@name="q"]').send_keys(keyword)
 	driver.find_element_by_xpath('//input[@name="q"]').send_keys(Keys.ENTER)
 	data['initial_search']['search_query'] = keyword
-	page = Selector(driver_page_source)
+	page = Selector(driver.page_source)
 	data['inital_search']['search_title_result'] = page.xpath('//h1//text()').get().strip()
 	data['inital_search']['search_text_result'] = page.xpath('//div[@class="mb24"]').xpath('.//p//text()').get()
-	return driver.page_source
+	return page
 	
 def get_questions_links(page):
 	'''
@@ -138,13 +137,14 @@ def get_question_data(page):
 
 if __name__ == "__main__":
 	# make the initial search
-	driver_source_page = initial_search('python', data=data)
-	page = Selector(driver_source_page)
+	print('Starting Stack Overflow Scraper')
+	page = initial_search('python', data=data)
 	all_questions_links = []
 	# Get all links to questions in this page
 	questions_links = get_questions_links(page)
 	# save the links
 	all_questions_links.append(questions_links)
+	print('Starting collecting questions links')
 	for i in range(3):
 		# get the number of the current page
 		current_page = int(page.xpath('//div[contains(@class, "s-pagination--item is-selected")]//text()').get())
@@ -154,6 +154,7 @@ if __name__ == "__main__":
 			next_href = page.xpath('//a[@rel="next"]//@href').get()
 			# create the absolute link to next page
 			next_page = 'https://stackoverflow.com' + next_href
+			print('Going to next page for collecting more links')
 			driver_source_page	= driver.get(next_page)
 			page = Selector(driver_source_page)
 			# Get all links to questions in this page
@@ -162,9 +163,10 @@ if __name__ == "__main__":
 			all_questions_links.append(questions_links)
 			print(f'Getting question links on page {current_page}')
 			sleep(1)
-
+	print('I will start visiting links of question gor getting the data required')
 	# now we have all links, now is time for getting the data of each question
 	for i, link_to_question in enumerate(all_questions_links()):
+		print(f'Going to link of question number {i+1}')
 		driver.get(link_to_question)
 		source_page = driver.page_source
 		page = Selector(source_page)
@@ -179,10 +181,12 @@ if __name__ == "__main__":
 		data['all_question'][i+1]['question_comments'].append(question_comment)
 		data['all_questions']['all_answer'].append(answers_data_and_comments)
 
+		print('Appending data to json file')
 		with open('data.json', 'a') as outfile:
 			json.dump(data, outfile)
-
+		print('Waiting')
 		sleep(2)
+	print('Process finish Sr!')
 
 
 
