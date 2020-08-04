@@ -5,11 +5,12 @@ import pathlib
 import os
 from parsel import Selector
 from time import sleep
+import json
 
 path_to_driver = '/home/baltasar/Desktop/ScrapyBoy/kognita/kognita/scraper/geckodriver'
 driver = webdriver.Firefox(executable_path=path_to_driver)
 # STRUCTURE
-dados = {"initial_search": {"search_query": "",
+data = {"initial_search": {"search_query": "",
                             "search_title_result": "",
                             "search_text_result": "",       
                             
@@ -34,7 +35,7 @@ dados = {"initial_search": {"search_query": "",
                         }]
         }}
 
-def initial_search(keyword:str):
+def initial_search(keyword, data):
 	'''
 	Define geting the page making the search and parseing some data, lastly return the questions links
 	:param keyword is the searching word in the search box of stack overflow
@@ -45,10 +46,10 @@ def initial_search(keyword:str):
 	driver.find_element_by_xpath('//input[@name="q"]').click()
 	driver.find_element_by_xpath('//input[@name="q"]').send_keys(keyword)
 	driver.find_element_by_xpath('//input[@name="q"]').send_keys(Keys.ENTER)
-	dados['initial_search']['search_query'] = keyword	
+	data['initial_search']['search_query'] = keyword
 	page = Selector(driver_page_source)
-	dados['inital_search']['search_title_result'] = page.xpath('//h1//text()').get().strip()
-	dados['inital_search']['search_text_result'] = page.xpath('//div[@class="mb24"]').xpath('.//p//text()').get()
+	data['inital_search']['search_title_result'] = page.xpath('//h1//text()').get().strip()
+	data['inital_search']['search_text_result'] = page.xpath('//div[@class="mb24"]').xpath('.//p//text()').get()
 	return driver.page_source
 	
 def get_questions_links(page):
@@ -94,7 +95,7 @@ def get_answers_and_comments_from_answers(page):
 	Defines the selection of all answer in the page selecting the data and also
 	getting all comments data in earch answer
 	:param page: is the source page with a parsel Selctor wrapper
-	:return all_answer_data: is  alist with the answer text, user, date and a list of comments
+	:return all_answer_data: is  a list with the answer text, user, date and a list of comments
 	'''
 
 	answers = page.xpath('//div[@class="answer"]')
@@ -128,16 +129,16 @@ def get_question_data(page):
 	'''
 	question_data = {'question_title':"", 'question_text':"", 'question_tags': "", 'question_date':"" , 'question_comments': ""}
 	question_body = page.xpath('//div[@class="post-layout"]')
-	question['question_title'] = page.xpath('//div[@id="question-header"]').xpath('.//a[contains(@class, "question")]/text()').get()
-	question['question_text'] = ''.join(page.xpath('//div[@class="post-text"]').xpath('.//text()').getall())
-	question['question_tags'] = page.xpath('//div[@class="post-layout"]').xpath('.//a[contains(@class, "post-tag")]//text()').getall()
-	question['question_date'] = get_data(page_source)
-	question['question_comments'] = get_comment_question(question_body.xpath('//div[contains(@class, "comment-body")]'))
+	question_data['question_title'] = page.xpath('//div[@id="question-header"]').xpath('.//a[contains(@class, "question")]/text()').get()
+	question_data['question_text'] = ''.join(page.xpath('//div[@class="post-text"]').xpath('.//text()').getall())
+	question_data['question_tags'] = page.xpath('//div[@class="post-layout"]').xpath('.//a[contains(@class, "post-tag")]//text()').getall()
+	question_data['question_date'] = get_question_date(page_source)
+	question_data['question_comments'] = get_comment_question_list(question_body.xpath('//div[contains(@class, "comment-body")]'))
 	return question_data
 
 if __name__ == "__main__":
 	# make the initial search
-	driver_source_page = initial_search('python')
+	driver_source_page = initial_search('python', data=data)
 	page = Selector(driver_source_page)
 	all_questions_links = []
 	# Get all links to questions in this page
@@ -167,10 +168,20 @@ if __name__ == "__main__":
 		driver.get(link_to_question)
 		source_page = driver.page_source
 		page = Selector(source_page)
+		# return a dictinary
 		question_data = get_question_data(page)
+		# return a list of dictionary
 		question_comment = get_comment_question_list()
+		# return a  list of dictionary and un key with the list of comments dictionary
 		answers_data_and_comments = get_answers_and_comments_from_answers(page)
 		print(f'Getting question and answer data in question number {i}')
+		data['all_questions'].append(question_data)
+		data['all_question'][i+1]['question_comments'].append(question_comment)
+		data['all_questions']['all_answer'].append(answers_data_and_comments)
+
+		with open('data.json', 'a') as outfile:
+			json.dump(data, outfile)
+
 		sleep(2)
 
 
