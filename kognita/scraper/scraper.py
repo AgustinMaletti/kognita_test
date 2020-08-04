@@ -8,34 +8,42 @@ import json
 
 path_to_driver = '/home/baltasar/Desktop/ScrapyBoy/kognita/kognita/scraper/geckodriver'
 driver = webdriver.Firefox(executable_path=path_to_driver)
-# STRUCTURE
-data = {"initial_search": {"search_query": "",
-                            "search_title_result": "",
-                            "search_text_result": ""},
+# DATA STRUCTURE
+"""
+	Define the creation of the next data structure:
+
+	data = {"initial_search": {"search_query": "",
+    	                       "search_title_result": "",
+        	                   "search_text_result": ""},
                             
-        "all_questions": [{"question_title": "",
-                            "question_preview_text": "",
-                            "question_text": "",
-                            "question_author": "",
-                            "question_date": "",
-                            "question_tags": "" ,
-                            "question_comments": [{"text": "",
-                                                    "author":"",
-                                                    "date": ""
-													}],
-          				   "all_answer": [{"answer_text": "",
-                          				   "answer_author": "",
-                           				   "answer_date": "",
-                           				   "answer_comments": [{"text": "",
-                                            				     "author":"",
-                                                 				 "date": ""
-												 			   }],
+                  "question": {"question_title": "",
+			         		   "question_text": "",
+					    	   "question_author": "",
+						       "question_date": "",
+						       "question_tags": "" ,
+						       "question_comments": [{"text": "",
+											"         author":"",
+											          "date": ""}],
+          				       "all_answer": [{"answer_text": "",
+                          			     	   "answer_author": "",
+                           				       "answer_date": "",
+                           				       "answer_comments": [{"text": "",
+                                            	    			     "author":"",
+                                                 	     			 "date": ""
+												 			               }],
                          				  }]
-                        }]
+                        }
         }
+	"""
 
+def create_dict():
+	data = { "question": {
+						  }
+		    }
 
-def initial_search(keyword, data):
+	return data
+
+def initial_search(keyword):
 	'''
 	Define getting the page making the search and parseing some data, lastly return the questions links
 	:param keyword is the searching word in the search box of stack overflow
@@ -47,11 +55,13 @@ def initial_search(keyword, data):
 	driver.find_element_by_xpath('//input[@name="q"]').click()
 	driver.find_element_by_xpath('//input[@name="q"]').send_keys(keyword)
 	driver.find_element_by_xpath('//input[@name="q"]').send_keys(Keys.ENTER)
+	print('Waiting 10, 9, 8...')
+	sleep(10)
 	# data
-	data['initial_search']['search_query'] = keyword
+	# data['initial_search']['search_query'] = keyword
 	page = Selector(driver.page_source)
-	data['initial_search']['search_title_result'] = page.xpath('//h1//text()').get().strip()
-	data['initial_search']['search_text_result'] = page.xpath('//div[@class="mb24"]').xpath('.//p//text()').get()
+	# data['initial_search']['search_title_result'] = page.xpath('//h1//text()').get().strip()
+	# data['initial_search']['search_text_result'] = page.xpath('//div[@class="mb24"]').xpath('.//p//text()').get()
 	return page
 
 
@@ -78,7 +88,7 @@ def get_question_date(page):
 	return data[0]
 
 
-def get_comment_question_list(page):
+def get_comment_question(page):
 	'''
 	Defines the selection of the comment data in the question
 	:param page: is a source page with parsel Selector class wrapper
@@ -93,7 +103,7 @@ def get_comment_question_list(page):
 		comment['author'] = c.xpath('.//a[contains(@class, "comment-user")]/text()').get()
 		comment['date'] = c.xpath('.//span[contains(@class, "relativetime")]/text()').get()
 		comment_list.append(comment)	
-	return comment_list
+	return {'question_comments': comment_list}
 
 
 def get_answers_and_comments_from_answers(page):
@@ -123,7 +133,7 @@ def get_answers_and_comments_from_answers(page):
 			comments_in_answer.append(comment_data)
 		answer_data['answer_comments'] = comments_in_answer
 		all_answer_data.append(answer_data)
-	return all_answer_data
+	return {'all_answer': all_answer_data}
 
 
 
@@ -139,24 +149,23 @@ def get_question_data(page):
 	question_data['question_text'] = ''.join(page.xpath('//div[@class="post-text"]').xpath('.//text()').getall())
 	question_data['question_tags'] = page.xpath('//div[@class="post-layout"]').xpath('.//a[contains(@class, "post-tag")]//text()').getall()
 	question_data['question_date'] = get_question_date(page)
-	question_data['question_comments'] = get_comment_question_list(question_body.xpath('//div[contains(@class, "comment-body")]'))
+	question_data['question_comments'] = get_comment_question(question_body.xpath('//div[contains(@class, "comment-body")]'))
 	return question_data
 
 if __name__ == "__main__":
 	# make the initial search
 	print('Starting Stack Overflow Scraper')
-	page = initial_search('python', data=data)
+	page = initial_search('python')
+
 	all_questions_links = []
 	# Get all links to questions in this page
 	questions_links = get_questions_links(page)
 	# save the links
-	all_questions_links.append(questions_links)
+	all_questions_links.extend(questions_links)
 	print('Starting collecting questions links')
 	for i in range(3):
-		print(i)
 		# get the number of the current page
 		current_page = page.xpath('//div[contains(@class, "s-pagination--item is-selected")]/text()').get()
-		print(current_page)
 		# check it: if the current page is above two proceed to next page and extract and save more links
 		if int(current_page) < 2:
 			# get the relative link to next page
@@ -164,37 +173,41 @@ if __name__ == "__main__":
 			# create the absolute link to next page
 			next_page = 'https://stackoverflow.com' + next_href
 			print('Going to next page for collecting more links')
-			driver_source_page	= driver.get(next_page)
-			page = Selector(driver_source_page)
+			driver.get(next_page)
+			print('Waiting 10, 9, 8 ...')
+			sleep(10)
+			page = Selector(driver.page_source)
 			# Get all links to questions in this page
 			questions_links = get_questions_links(page)
 			# save the links in the main list
-			all_questions_links.append(questions_links)
+			all_questions_links.extend(questions_links)
 			print(f'Getting question links on page {current_page}')
-			sleep(1)
-	print('I will start visiting links of question gor getting the data required')
+
+	print('I will start visiting links of question for getting the data')
 	# now we have all links, now is time for getting the data of each question
 	for i, link_to_question in enumerate(all_questions_links):
+		data = create_dict()
 		print(f'Going to link of question number {i+1}')
 		driver.get(link_to_question)
+		print('Waiting 10, 9, 8...')
+		sleep(4)
 		source_page = driver.page_source
 		page = Selector(source_page)
-		# return a dictinary
+		# return a dictionary
 		question_data = get_question_data(page)
 		# return a list of dictionary
-		question_comment = get_comment_question_list(page)
+		question_comment = get_comment_question(page)
 		# return a  list of dictionary and un key with the list of comments dictionary
 		answers_data_and_comments = get_answers_and_comments_from_answers(page)
 		print(f'Getting question and answer data in question number {i}')
-		data['all_questions'].append(question_data)
-		data['all_question'][i+1]['question_comments'].append(question_comment)
-		data['all_questions']['all_answer'].append(answers_data_and_comments)
+		data['question'].update(question_data)
+		data['question'].update(question_comment)
+		data['question'].update(answers_data_and_comments)
 
 		print('Appending data to json file')
 		with open('data.json', 'a') as outfile:
 			json.dump(data, outfile)
-		print('Waiting')
-		sleep(2)
+
 	print('Process finish Sr!')
 
 
