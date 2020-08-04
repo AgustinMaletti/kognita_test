@@ -11,28 +11,29 @@ driver = webdriver.Firefox(executable_path=path_to_driver)
 # STRUCTURE
 data = {"initial_search": {"search_query": "",
                             "search_title_result": "",
-                            "search_text_result": "",       
+                            "search_text_result": ""},
                             
-        "all_questions": [{ "question_title": "",
+        "all_questions": [{"question_title": "",
                             "question_preview_text": "",
                             "question_text": "",
                             "question_author": "",
                             "question_date": "",
                             "question_tags": "" ,
-                            "question_comments": [{ "text": "",
+                            "question_comments": [{"text": "",
                                                     "author":"",
                                                     "date": ""
 													}],
           				   "all_answer": [{"answer_text": "",
                           				   "answer_author": "",
                            				   "answer_date": "",
-                           				   "answer_comments": [{ "text": "",
+                           				   "answer_comments": [{"text": "",
                                             				     "author":"",
                                                  				 "date": ""
 												 			   }],
                          				  }]
                         }]
-        }}
+        }
+
 
 def initial_search(keyword, data):
 	'''
@@ -41,16 +42,19 @@ def initial_search(keyword, data):
 	:return page is the source_page wrapped by a parsel Selector class
 	
 	'''
+	# actions
 	driver.get('https://stackoverflow.com/')
 	driver.find_element_by_xpath('//input[@name="q"]').click()
 	driver.find_element_by_xpath('//input[@name="q"]').send_keys(keyword)
 	driver.find_element_by_xpath('//input[@name="q"]').send_keys(Keys.ENTER)
+	# data
 	data['initial_search']['search_query'] = keyword
 	page = Selector(driver.page_source)
-	data['inital_search']['search_title_result'] = page.xpath('//h1//text()').get().strip()
-	data['inital_search']['search_text_result'] = page.xpath('//div[@class="mb24"]').xpath('.//p//text()').get()
+	data['initial_search']['search_title_result'] = page.xpath('//h1//text()').get().strip()
+	data['initial_search']['search_text_result'] = page.xpath('//div[@class="mb24"]').xpath('.//p//text()').get()
 	return page
-	
+
+
 def get_questions_links(page):
 	'''
 	Defines getting and creating absolutes links for the questions
@@ -59,6 +63,7 @@ def get_questions_links(page):
 	'''
 	questions_links = ['https://stackoverflow.com' + link for link in page.xpath("//a[@class='question-hyperlink']/@href").getall()]
 	return questions_links
+
 
 def get_question_date(page):
 	'''
@@ -71,6 +76,7 @@ def get_question_date(page):
 	.xpath('.//span[@class="relativetime"]//text()').getall()
 	data.reverse()
 	return data[0]
+
 
 def get_comment_question_list(page):
 	'''
@@ -88,6 +94,7 @@ def get_comment_question_list(page):
 		comment['date'] = c.xpath('.//span[contains(@class, "relativetime")]/text()').get()
 		comment_list.append(comment)	
 	return comment_list
+
 
 def get_answers_and_comments_from_answers(page):
 	'''
@@ -131,7 +138,7 @@ def get_question_data(page):
 	question_data['question_title'] = page.xpath('//div[@id="question-header"]').xpath('.//a[contains(@class, "question")]/text()').get()
 	question_data['question_text'] = ''.join(page.xpath('//div[@class="post-text"]').xpath('.//text()').getall())
 	question_data['question_tags'] = page.xpath('//div[@class="post-layout"]').xpath('.//a[contains(@class, "post-tag")]//text()').getall()
-	question_data['question_date'] = get_question_date(page_source)
+	question_data['question_date'] = get_question_date(page)
 	question_data['question_comments'] = get_comment_question_list(question_body.xpath('//div[contains(@class, "comment-body")]'))
 	return question_data
 
@@ -146,12 +153,14 @@ if __name__ == "__main__":
 	all_questions_links.append(questions_links)
 	print('Starting collecting questions links')
 	for i in range(3):
+		print(i)
 		# get the number of the current page
-		current_page = int(page.xpath('//div[contains(@class, "s-pagination--item is-selected")]//text()').get())
+		current_page = page.xpath('//div[contains(@class, "s-pagination--item is-selected")]/text()').get()
+		print(current_page)
 		# check it: if the current page is above two proceed to next page and extract and save more links
 		if int(current_page) < 2:
 			# get the relative link to next page
-			next_href = page.xpath('//a[@rel="next"]//@href').get()
+			next_href = page.xpath('//a[@rel="next"]/@href').get()
 			# create the absolute link to next page
 			next_page = 'https://stackoverflow.com' + next_href
 			print('Going to next page for collecting more links')
@@ -165,7 +174,7 @@ if __name__ == "__main__":
 			sleep(1)
 	print('I will start visiting links of question gor getting the data required')
 	# now we have all links, now is time for getting the data of each question
-	for i, link_to_question in enumerate(all_questions_links()):
+	for i, link_to_question in enumerate(all_questions_links):
 		print(f'Going to link of question number {i+1}')
 		driver.get(link_to_question)
 		source_page = driver.page_source
@@ -173,7 +182,7 @@ if __name__ == "__main__":
 		# return a dictinary
 		question_data = get_question_data(page)
 		# return a list of dictionary
-		question_comment = get_comment_question_list()
+		question_comment = get_comment_question_list(page)
 		# return a  list of dictionary and un key with the list of comments dictionary
 		answers_data_and_comments = get_answers_and_comments_from_answers(page)
 		print(f'Getting question and answer data in question number {i}')
