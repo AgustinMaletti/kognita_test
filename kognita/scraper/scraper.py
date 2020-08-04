@@ -205,7 +205,40 @@ def get_question_data(page):
 def check_presence_of_more_button(page, question_or_answer:str):
 	if question_or_answer == 'question':
 		question_body = page.xpath('')
-		
+
+# Simplificando:
+
+# layout_body
+'//div[@class="post-layout"]'
+# inside layout_body: post text
+'.//div[@class="post-text"]'
+# inside layout_body: user_body
+'.//div[contains(@class,"user-info")]'
+# inside user_body: date
+'.//span[@class=relativetime/text()'
+# inside user_body: relative link to profile
+'.//div[@class=user-details]/a/@href'
+# inside user_body: user name
+'.//div[@class=user-details]/a/text()'
+# inside user_body: reputation points
+'.//span[@class="reputation-score"]'
+
+# inside layout_body: comments list
+'//div[contains(@class, "comment-text")]'
+# for comments inside comments list: comment text
+'.//div[contains(@class, "comment-body")]/span/text()'
+# for comments inside comments list: comment author
+'.//div[contains(@class, "comment-body")]/a/text()'
+# for comments inside comments list: relativetime
+'.//span[contains(@class, "relativetime")]/text()'
+
+
+# question only tags
+'.//div[contains(@class, "post-taglist")]//a/text()'
+
+
+
+
 
 
 if __name__ == "__main__":
