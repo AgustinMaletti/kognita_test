@@ -5,19 +5,7 @@ from selenium.webdriver.firefox.options import Options
 from parsel import Selector
 from time import sleep
 import json
-
-# path to browser bin
-path_to_driver = '/home/baltasar/Desktop/ScrapyBoy/kognita/kognita/scraper/geckodriver'
-# file for saving data
-file_name_data = 'data.json'
-# keyword for search
-keyword = 'python'
-# Defines the options and preference for the firefox browser
-options = Options()
-firefox_profile = webdriver.FirefoxProfile()
-firefox_profile.DEFAULT_PREFERENCES['frozen']["javascript.enabled"] = True
-options.profile = firefox_profile
-driver = webdriver.Firefox(executable_path=path_to_driver, options=options)
+import argparse
 
 
 # DATA STRUCTURE
@@ -102,7 +90,7 @@ def initial_search(keyword:str):
 
 	return page
 
-def save_search_data(keyword, file_name):
+def save_search_data(keyword, file_name, page):
 	'''
 		Defines the saving of the initial searhc data
 	   :param keyword: is the keyword of the search
@@ -110,8 +98,8 @@ def save_search_data(keyword, file_name):
 	'''
 	data = {}
 	data['search_query'] = keyword
-	data['search_title_result'] = page.xpath('//h1//text()').get().strip()
-	data['search_text_result'] = page.xpath('//div[@class="mb24"]').xpath('.//p//text()').get()
+	data['search_title_result'] = page.xpath('//h1[contains(@class,"grid--cell")]/text()').get().strip()
+	data['search_text_result'] = page.xpath('//div[@class="mb24"]//p//text()').get().strip()
 	append_to_json(file_name, data)
 
 
@@ -125,186 +113,212 @@ def get_questions_links(page):
 	return questions_links
 
 
-def get_question_date(page):
+def look_for_more_btn_and_click():
 	'''
-	Defines the selection of the date in questions layout
-	:param page: is the source_page wrapped by a parsel Selector class
-	:return date: is an string
-	 '''
-	data = page.xpath('//div[contains(@class, "post-layout--right")]')\
-	.xpath('.//div[@class="user-action-time"]') \
-	.xpath('.//span[@class="relativetime"]//text()').getall()
-	data.reverse()
-	return data[0]
+	Defines clicking in all more button in the comments for reveling more comments
+
+	'''
+	more_button_list = driver.find_elements_by_xpath('//a[contains(@class,"js-show-link comments-link") and contains(text(),"show")]')
+	for more_btn in more_button_list:
+		driver.execute_script("arguments[0.scrollIntoView();", more_btn)
+		sleep(1)
+		more_btn.click()
+		sleep(2)
 
 
-def get_comment_question(page):
+def parse_data(page):
 	'''
-	Defines the selection of the comment data in the question
-	:param page: is a source page with parsel Selector class wrapper
-	:return: comment_list: is the list of comment data
-	'''
-	question_body = page.xpath('//div[@class="post-layout"]')
-	question_comments = question_body.xpath('//div[contains(@class, "comment-body")]')
-	comment_list = []
-	for c in question_comments:
-		comment = {'text': "", 'author': "", 'date': ""}
-		comment['text'] = c.xpath('.//span[@class="comment-copy"]/text()').get()
-		comment['author'] = c.xpath('.//a[contains(@class, "comment-user")]/text()').get()
-		comment['date'] = c.xpath('.//span[contains(@class, "relativetime")]/text()').get()
-		comment_list.append(comment)	
-	return {'question_comments': comment_list}
-
-
-def get_answers_and_comments_from_answers(page):
-	'''
-	Defines the selection of all answer in the page selecting the data and also
-	getting all comments data in earch answer
-	:param page: is the source page with a parsel Selctor wrapper
-	:return all_answer_data: is  a list with the answer text, user, date and a list of comments
+	Defines the parsing of the data in the question page, first get the question and them the answers,
+	also click in alll more buttons from comments and them itinerate over comments them for getting the info.
+	:param page: is the source page wrapped by a selector class parsel
+	:return data: is a dictionary with all the data in the page
 	'''
 
-	answers = page.xpath('//div[@class="answer"]')
-	all_answer_data = []
-	for a in answers:
-		answer_data = {'answer_text': "", 'answer_user': "", 'answer_date': "", 'answer_comments': ""}
-		answer_data['answer_text'] = ''.join(a.xpath('.//div[@class="post-text"]//text()').getall())
-		answer_user_info = a.xpath('.//div[contains(@class, "user-info")]')
-		answer_data['answer_use'] = answer_user_info.xpath('.//div[@class="user-details"]/a/text()').get()
-		answer_data['answer_date'] = answer_user_info.xpath('.//div[@class="user-action-time"]/span/text()').get()
-		comment_in_answer_list = a.xpath('.//div[contains(@class,"comment-body")]')
-		comments_in_answer = []
-		for i, comment_in_answer in enumerate(comment_in_answer_list):
-			comment_in_answer_text = comment_in_answer.xpath('.//span[@class="comment-copy"]/text()').get()
-			comment_in_answer_author = comment_in_answer.xpath('.//a[@class="comment-user"]/text()').get()
-			comment_in_answer_date = comment_in_answer.xpath('.//span[contains(@class, "relativetime")]/text()').get()
-			comment_data = {'text': comment_in_answer_text, 'author': comment_in_answer_author,
-							'date': comment_in_answer_date }
-			comments_in_answer.append(comment_data)
-		answer_data['answer_comments'] = comments_in_answer
-		all_answer_data.append(answer_data)
-	return {'all_answer': all_answer_data}
+	data = create_dict()
+	data['question']['question_title'] = page.xpath('//div[@id="question-header"]/h1/a/text()').get()
+	all_answers = []
+	for i, post in enumerate(page.xpath('//div[@class="post-layout"]')):
+		if i == 0:
+			# inside layout_body: post text
+			data['question']['question_text'] = ''.join(post.xpath('.//div[@class="post-text"]//text()').getall()).strip()
+			# tags only in questions
+			data['question']['question_tags'] = post.xpath('.//div[contains(@class, "post-taglist")]//a/text()').getall()
+			# inside layout_body: user_body
+			question_author_body = post.xpath('.//div[contains(@class,"user-info")]')
+			# inside user_body: user name
+			data['question']['question_author_name'] = question_author_body.xpath('.//div[@class="user-details"]/a/text()').get()
+			# inside user_body: relative link to profile
+			data['question']['question_author_link'] = question_author_body.xpath('.//div[@class="user-details"]/a/@href').get()
+			# inside user_body: reputation points
+			data['question']['question_author_reputation'] = question_author_body.xpath('.//span[@class="reputation-score"]/text()').get()
+			# inside user_body: date
+			data['question']['question_date'] = question_author_body.xpath('.//span[@class="relativetime"]/text()').get()
+
+			comment_list = []
+			# inside layout_body: comments list
+			for comment in post.xpath('.//div[contains(@class, "comment-text")]'):
+				comment_data = {}
+				# for comments inside comments list: comment text
+				comment_data['text'] = comment.xpath('.//div[contains(@class, "comment-body")]/span/text()').get()
+				# for comments inside comments list: comment author
+				comment_data['author'] = comment.xpath('.//div[contains(@class, "comment-body")]/a/text()').get()
+				# for comments inside comments list: relativetime
+				comment_data['date'] = comment.xpath('.//span[contains(@class, "relativetime")]/text()').get()
+				comment_list.append(comment_data)
+
+		else:
+			answer = {}
+			answer['text'] = ''.join(post.xpath('.//div[@class="post-text"]//text()').getall()).strip()
+			answer_author_body = post.xpath('.//div[contains(@class,"user-info")]')
+			answer['author'] = answer_author_body.xpath('.//div[@class="user-details"]/a/text()').get()
+			answer['author_link'] = answer_author_body.xpath('.//div[@class="user-details"]/a/@href').get()
+			answer['author_reputation'] = answer_author_body.xpath('.//span[@class="reputation-score"]/text()').get()
+			answer['date'] = answer_author_body.xpath('.//span[@class="relativetime"]/text()').get()
+			comment_list = []
+			for comment in post.xpath('.//div[contains(@class, "comment-text")]'):
+				comment_data = {}
+				# for comments inside comments list: comment text
+				comment_data['text'] = comment.xpath('.//div[contains(@class, "comment-body")]/span/text()').get()
+				# for comments inside comments list: comment author
+				comment_data['author'] = comment.xpath('.//div[contains(@class, "comment-body")]/a/text()').get()
+				# for comments inside comments list: relativetime
+				comment_data['date'] = comment.xpath('.//span[contains(@class, "relativetime")]/text()').get()
+				comment_list.append(comment_data)
+			answer['comments'] = comment_list
+			all_answers.append(answer)
+	data['question']['all_asnwers'] = all_answers
+	return data
 
 
-
-def get_question_data(page):
+def setup_question_per_page_option(option):
 	'''
-	Defines the selection of the question data
-	:param page: is the source page with a parsel Selector class wrapper
-	:return question_data: is a dictionary with the data title, text. tags. date. and comments
-	'''
-	question_data = {'question_title':"", 'question_text':"", 'question_tags': "", 'question_date':"" , 'question_comments': ""}
-	question_body = page.xpath('//div[@class="post-layout"]')
-	question_data['question_title'] = page.xpath('//div[@id="question-header"]').xpath('.//a[contains(@class, "question")]/text()').get()
-	question_data['question_text'] = ''.join(page.xpath('//div[@class="post-text"]').xpath('.//text()').getall())
-	question_data['question_tags'] = page.xpath('//div[@class="post-layout"]').xpath('.//a[contains(@class, "post-tag")]//text()').getall()
-	question_data['question_date'] = get_question_date(page)
-	question_data['question_comments'] = get_comment_question(question_body.xpath('//div[contains(@class, "comment-body")]'))
-	return question_data
+    In the result page of the search, this function set up the
+    quantity of question per page
+    :param option: is the string number 15 or 30 or 50 for the total question by page
+    :return page is the source apge wraped by a selector parsel class
 
-def check_presence_of_more_button(page, question_or_answer:str):
-	if question_or_answer == 'question':
-		question_body = page.xpath('')
-
-# Simplificando:
-
-# layout_body
-'//div[@class="post-layout"]'
-# inside layout_body: post text
-'.//div[@class="post-text"]'
-# inside layout_body: user_body
-'.//div[contains(@class,"user-info")]'
-# inside user_body: date
-'.//span[@class=relativetime/text()'
-# inside user_body: relative link to profile
-'.//div[@class=user-details]/a/@href'
-# inside user_body: user name
-'.//div[@class=user-details]/a/text()'
-# inside user_body: reputation points
-'.//span[@class="reputation-score"]'
-
-# inside layout_body: comments list
-'//div[contains(@class, "comment-text")]'
-# for comments inside comments list: comment text
-'.//div[contains(@class, "comment-body")]/span/text()'
-# for comments inside comments list: comment author
-'.//div[contains(@class, "comment-body")]/a/text()'
-# for comments inside comments list: relativetime
-'.//span[contains(@class, "relativetime")]/text()'
-
-
-# question only tags
-'.//div[contains(@class, "post-taglist")]//a/text()'
-
-
-
-
-
-
+    '''
+	try:
+		# close popup element if is there
+		popup_element = driver.find_element_by_xpath('//a[contains(@class,"s-btn s-btn__muted")]')
+		popup_element.click()
+	except:
+		pass
+	if option == '15':
+		pass
+	elif option == '30':
+		print('Setting 30 question by page')
+		question_30 = driver.find_element_by_xpath('//a[contains(@title, "Show 30")]')
+		driver.execute_script("arguments[0].scrollIntoView", question_30)
+		sleep(3)
+		question_30.click()
+		sleep(3)
+	elif option == '50':
+		print('Setting 50 question by page')
+		question_50 = driver.find_element_by_xpath('//a[contains(@title, "Show 50")]')
+		driver.execute_script("arguments[0].scrollIntoView", question_50)
+		sleep(3)
+		question_50.click()
+		sleep(3)
+	return Selector(driver.page_source)
 if __name__ == "__main__":
+	# getting argument from command line
+	parser = argparse.ArgumentParser()
+	parser.add_argument("--question_by_page", type=str, help="Quantidade de perguntas por pagina, opcoes validas: 15, 30 e 50")
+	parser.add_argument("--keyword", type=str, help="the keyword for the search")
+	args = parser.parse_args()
+	# the keyword for making the searc
+	if args.keyword:
+		keyword = args.keyword
+	# the quenaitty of questions per page in the results page of the search
+	if (args.question_by_page != '15' and args.question_by_page != '30' and args.question_by_page != '50'):
+	# default value is 15
+		question_by_page = '15'
+		print('Setting default value of question by page equal 15')
+	else:
+		question_by_page = args.question_by_page
+
+	# Setup the browser
+	# path to browser bin
+	path_to_driver = '/home/baltasar/Desktop/ScrapyBoy/kognita/kognita/scraper/geckodriver'
+	# file for saving data
+	file_name_data = 'data.json'
+	# keyword for search
+	keyword = 'python'
+	# Defines the options and preference for the firefox browser
+	options = Options()
+	firefox_profile = webdriver.FirefoxProfile()
+	firefox_profile.DEFAULT_PREFERENCES['frozen']["javascript.enabled"] = True
+	options.profile = firefox_profile
+	driver = webdriver.Firefox(executable_path=path_to_driver, options=options)
+
 	# make the initial search
 	print('Starting Stack Overflow Scraper')
 	init_file(file_name_data)
-	save_search_data(keyword, file_name_data)
 	page = initial_search(keyword)
+	save_search_data(keyword, file_name_data, page)
 	all_questions_links = []
 	# Get all links to questions in this page
+	page = setup_question_per_page_option(question_by_page)
 	questions_links = get_questions_links(page)
 	# save the links
 	all_questions_links.extend(questions_links)
 	print('Starting collecting questions links')
 	for i in range(3):
-		# get the number of the current page
-		current_page = page.xpath('//div[contains(@class, "s-pagination--item is-selected")]/text()').get()
-		# check it: if the current page is above two proceed to next page and extract and save more links
-		if int(current_page) < 2:
-			# get the relative link to next page
-			next_href = page.xpath('//a[@rel="next"]/@href').get()
-			# create the absolute link to next page
-			next_page = 'https://stackoverflow.com' + next_href
-			print('Going to next page for collecting more links')
-			driver.get(next_page)
-			print('Waiting 10, 9, 8 ...')
-			sleep(10)
-			page = Selector(driver.page_source)
-			# Get all links to questions in this page
-			questions_links = get_questions_links(page)
-			# save the links in the main list
-			all_questions_links.extend(questions_links)
-			print(f'Getting question links on page {current_page}')
-
+		try:
+			# get the number of the current page
+			current_page = page.xpath('//div[contains(@class, "s-pagination--item is-selected")]/text()').get()
+			# check it: if the current page is above two proceed to next page and extract and save more links
+			if int(current_page) <= 2:
+				print(f'Current number page is {current_page}')
+				# get the relative link to next page
+				next_href = page.xpath('//a[@rel="next"]/@href').get()
+				# create the absolute link to next page
+				next_page = 'https://stackoverflow.com' + next_href
+				print('Going to next page for collecting more links')
+				driver.get(next_page)
+				print('Waiting 10, 9, 8 ...')
+				sleep(10)
+				page = Selector(driver.page_source)
+				# set question per page equal to question_by_page
+				# Get all links to questions in this page
+				questions_links = get_questions_links(page)
+				# save the links in the main list
+				all_questions_links.extend(questions_links)
+				print(f'Getting question links on page {current_page}')
+		except KeyboardInterrupt:
+			print('Closing Scraper')
+			driver.close()
+		except Exception:
+			pass
 	print('I will start visiting links of question for getting the data')
 	# now we have all links, now is time for getting the data of each question
-	for i, link_to_question in enumerate(all_questions_links[:10]):
-		data = create_dict()
-		print(f'Going to link of question number {i+1}')
-		driver.get(link_to_question)
-		print('Waiting 10, 9, 8...')
-		sleep(4)
-		source_page = driver.page_source
-		page = Selector(source_page)
-		# return a dictionary
-		question_data = get_question_data(page)
-		# return a list of dictionary
-		question_comment = get_comment_question(page)
-		# return a  list of dictionary and un key with the list of comments dictionary
-		answers_data_and_comments = get_answers_and_comments_from_answers(page)
-		print(f'Getting question and answer data in question number {i}')
-		data['question'].update(question_data)
-		data['question'].update(question_comment)
-		data['question'].update(answers_data_and_comments)
+	for i, link_to_question in enumerate(all_questions_links):
+		try:
+			print(f'Going to link of question number {i+1}')
+			driver.get(link_to_question)
+			print('Waiting 4, 3, 2...')
+			sleep(4)
+			# the next function look for more buttons in comments scrool into view and click them
+			look_for_more_btn_and_click()
+			sleep(1)
+			source_page = driver.page_source
+			page = Selector(source_page)
+			data = parse_data(page)
+			print('Appending data to json file')
+			append_to_json(file_name_data, data)
+		except KeyboardInterrupt:
+			print('Closing Scraper')
+			driver.close()
+		except Exception:
+			pass
 
-		print('Appending data to json file')
-		append_to_json(file_name_data, data)
 
 	print('Process finish Sr!')
 
 
 
 
-		# for each question extract answer author text and day
-		# for each answer extract comment author text and day
-		
 
 
 
