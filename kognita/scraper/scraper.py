@@ -1,15 +1,25 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-
+from selenium.webdriver.firefox.options import Options
 from parsel import Selector
 from time import sleep
 import json
 
+# path to browser bin
 path_to_driver = '/home/baltasar/Desktop/ScrapyBoy/kognita/kognita/scraper/geckodriver'
-driver = webdriver.Firefox(executable_path=path_to_driver)
+# file for saving data
 file_name_data = 'data.json'
+# keyword for search
 keyword = 'python'
+# Defines the options and preference for the firefox browser
+options = Options()
+firefox_profile = webdriver.FirefoxProfile()
+firefox_profile.DEFAULT_PREFERENCES['frozen']["javascript.enabled"] = True
+options.profile = firefox_profile
+driver = webdriver.Firefox(executable_path=path_to_driver, options=options)
+
+
 # DATA STRUCTURE
 """
 	Define the creation of the next data structure:
@@ -37,6 +47,8 @@ keyword = 'python'
                         }
         }
 	"""
+
+
 def init_file(file_name:str):
 	'''
 	Defines the creation of an json file with an empy list inside
@@ -189,6 +201,12 @@ def get_question_data(page):
 	question_data['question_date'] = get_question_date(page)
 	question_data['question_comments'] = get_comment_question(question_body.xpath('//div[contains(@class, "comment-body")]'))
 	return question_data
+
+def check_presence_of_more_button(page, question_or_answer:str):
+	if question_or_answer == 'question':
+		question_body = page.xpath('')
+		
+
 
 if __name__ == "__main__":
 	# make the initial search
