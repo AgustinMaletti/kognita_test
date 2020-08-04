@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2ac5447-3849-4d04-a749-c776d88af32c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita/scraper/data.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/kognita/scraper/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/kognita/scraper/geckodriver.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kognita/scraper/scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita/scraper/scraper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kognita/scraper/scraper_development.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/kognita/scraper/scraper_development.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,13 +15,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kognita/scraper/scraper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
+            <state relative-caret-position="628">
               <caret line="196" column="35" selection-start-line="196" selection-start-column="35" selection-end-line="196" selection-end-column="35" />
               <folding>
                 <element signature="e#1#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/kognita/scraper/data.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="1" selection-start-column="1" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kognita/scraper/bot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,6 +75,7 @@
       <list>
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/kognita/scraper/scraper.py" />
+        <option value="$PROJECT_DIR$/kognita/scraper/data.json" />
       </list>
     </option>
   </component>
@@ -68,10 +90,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="9" />
-    <option name="y" value="156" />
+    <option name="x" value="1853" />
+    <option name="y" value="160" />
     <option name="width" value="771" />
-    <option name="height" value="892" />
+    <option name="height" value="768" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -174,15 +196,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="132" width="1026" height="768" extended-state="6" />
+    <frame x="1023" y="0" width="1602" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.29610655" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18621135" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" sideWeight="0.49935567" weight="0.32945737" />
       <window_info anchor="bottom" id="Python Console" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.4989754" visible="true" weight="0.36292836" />
+      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49935567" visible="true" weight="0.3010336" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
@@ -190,11 +212,11 @@
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info anchor="bottom" x="0" y="0" width="142" height="692" id="Documentation" order="10" sideWeight="0.5010246" side_tool="true" visible="true" weight="0.36292836" />
+      <window_info anchor="bottom" x="0" y="0" width="142" height="692" id="Documentation" order="10" sideWeight="0.5006443" side_tool="true" visible="true" weight="0.3010336" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Debug" order="3" side_tool="true" visible="true" weight="0.11372951" />
+      <window_info anchor="right" id="Debug" order="3" side_tool="true" visible="true" weight="0.07152062" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,17 +245,6 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/kognita/scraper/scraper.py</url>
-          <line>161</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -242,13 +253,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/kognita/scraper/bot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/kognita/scraper/scraper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
+        <state relative-caret-position="628">
           <caret line="196" column="35" selection-start-line="196" selection-start-column="35" selection-end-line="196" selection-end-column="35" />
           <folding>
             <element signature="e#1#31#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kognita/scraper/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
         </state>
       </provider>
     </entry>
