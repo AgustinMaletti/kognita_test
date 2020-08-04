@@ -7,6 +7,18 @@ from time import sleep
 import json
 import argparse
 
+# Setup the browser
+# path to browser bin
+path_to_driver = '/home/baltasar/Desktop/ScrapyBoy/kognita/kognita/scraper/geckodriver'
+# file for saving data
+file_name_data = 'data2.json'
+# keyword for search
+keyword = 'python'
+# Defines the options and preference for the firefox browser
+options = Options()
+firefox_profile = webdriver.FirefoxProfile()
+firefox_profile.DEFAULT_PREFERENCES['frozen']["javascript.enabled"] = True
+options.profile = firefox_profile
 
 # DATA STRUCTURE
 """
@@ -85,9 +97,7 @@ def initial_search(keyword:str):
 	print('Waiting 10, 9, 8...')
 	sleep(10)
 	# data
-
 	page = Selector(driver.page_source)
-
 	return page
 
 def save_search_data(keyword, file_name, page):
@@ -120,8 +130,8 @@ def look_for_more_btn_and_click():
 	'''
 	more_button_list = driver.find_elements_by_xpath('//a[contains(@class,"js-show-link comments-link") and contains(text(),"show")]')
 	for more_btn in more_button_list:
-		driver.execute_script("arguments[0.scrollIntoView();", more_btn)
-		sleep(1)
+		driver.execute_script("arguments[0].scrollIntoView();", more_btn)
+		sleep(2)
 		more_btn.click()
 		sleep(2)
 
@@ -165,6 +175,7 @@ def parse_data(page):
 				# for comments inside comments list: relativetime
 				comment_data['date'] = comment.xpath('.//span[contains(@class, "relativetime")]/text()').get()
 				comment_list.append(comment_data)
+			data['question']['question_comments'] = comment_list
 
 		else:
 			answer = {}
@@ -238,18 +249,6 @@ if __name__ == "__main__":
 	else:
 		question_by_page = args.question_by_page
 
-	# Setup the browser
-	# path to browser bin
-	path_to_driver = '/home/baltasar/Desktop/ScrapyBoy/kognita/kognita/scraper/geckodriver'
-	# file for saving data
-	file_name_data = 'data.json'
-	# keyword for search
-	keyword = 'python'
-	# Defines the options and preference for the firefox browser
-	options = Options()
-	firefox_profile = webdriver.FirefoxProfile()
-	firefox_profile.DEFAULT_PREFERENCES['frozen']["javascript.enabled"] = True
-	options.profile = firefox_profile
 	driver = webdriver.Firefox(executable_path=path_to_driver, options=options)
 
 	# make the initial search
@@ -299,9 +298,10 @@ if __name__ == "__main__":
 			driver.get(link_to_question)
 			print('Waiting 4, 3, 2...')
 			sleep(4)
-			# the next function look for more buttons in comments scrool into view and click them
+			# the next function look for more buttons in comments scroll into view and click them
 			look_for_more_btn_and_click()
 			sleep(1)
+			# we get the source page again becouse of the possible new comments redered
 			source_page = driver.page_source
 			page = Selector(source_page)
 			data = parse_data(page)
