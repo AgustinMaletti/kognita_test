@@ -19,7 +19,8 @@ from source.config import BASE_DIR_DATA
 
                   "question": {"question_title": "",
 			         		   "question_text": "",
-					    	   "question_author": "",
+					    	   "question_author_name": "",
+					    	   "question_author_link": "",
 						       "question_date": "",
 						       "question_tags": "" ,
 						       "question_comments": [{"text": "",
