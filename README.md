@@ -1,14 +1,14 @@
 # Kognita Lab test
 #### Objetivo:
 * Desenvolver Scraper para Stack Overflow
-* Disponibilizar dados por meio duma Api Flask
+* Disponibilizar dados por meio de uma Api Flask
 
 Para usar por favor primeiro faça o download do repositorio.
 
-Active o virtualenv kognita_venv ou instale todas las dependecias no seu sistema python com:
+Ative o virtualenv kognita_venv ou instale todas as dependencias no seu sistema python com:
 * pip install -r requirements.txt
 
-Para usar por favor se posicionar na pasta kognita e correr alguma das siguintes opções:
+Para usar, por favor se posicionar na pasta kognita e correr alguma das siguintes opções:
 
 *   python -m source.main -e scraper
 
