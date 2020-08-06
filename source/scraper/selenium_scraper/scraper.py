@@ -5,10 +5,7 @@ from selenium.webdriver.firefox.options import Options
 from parsel import Selector
 from time import sleep
 import json
-import argparse
-import pathlib
-from source.config import BASE_DIR_DATA
-from scrapy.linkextractors import LinkExtractor
+import os
 
 # DATA STRUCTURE
 """
@@ -27,6 +24,13 @@ from scrapy.linkextractors import LinkExtractor
 						       "question_comments": [{"text": "",
 											"         author":"",
 											          "date": ""}],
+											          
+							   "user_answers_made": "",
+            				   "user_questions_made": "",
+            				   "user_people_reached": "",
+            				   "user_member_since": "",
+            				   "user_profile_view": "",
+            				   "user_last_see": ""			          
           				       "all_answer": [{"answer_text": "",
                           			     	   "answer_author": "",
                            				       "answer_date": "",
@@ -42,27 +46,28 @@ from scrapy.linkextractors import LinkExtractor
 
 class StackOverFlowScraper():
 
-	def __init__(self,keyword:str, file_name:str, option:str):
+	def __init__(self,keyword:str, file_name:str, option:str, geckoDriver:str, headOption:bool, maximum_question=None, follow_user_data=False):
 		'''
 		:param option is 15 or 30 or 50 questions by page
 
 		'''
 		# Setup the browser
-		PATH = pathlib.Path(__file__).parent
-		path_to_driver = PATH.joinpath('geckodriver').resolve().__str__()
-		file_name_data = BASE_DIR_DATA.joinpath('data2.json')
 		self.keyword = keyword
 		self.file_name = file_name
 		self.option = option
+		self.max_question = maximum_question
+		self.follow_user_data = follow_user_data
 		options = Options()
 		firefox_profile = webdriver.FirefoxProfile()
 		firefox_profile.DEFAULT_PREFERENCES['frozen']["javascript.enabled"] = True
 		options.profile = firefox_profile
-		self.driver = webdriver.Firefox(executable_path=path_to_driver, options=options)
+		headless = False if headOption else True
+		options.headless = headless
+		self.driver = webdriver.Firefox(executable_path=geckoDriver, options=options)
 
 
 
-	def init_file(self, file_name:str):
+	def init_file(self, file_name):
 		'''
 		Defines the creation of an json file with an empy list inside
 		:param file_name: is the name of the json file
@@ -70,6 +75,7 @@ class StackOverFlowScraper():
 		'''
 		with open(file_name, mode='w', encoding='utf-8') as file:
 			json.dump([], file)
+		assert os.path.exists(file_name)
 
 
 	def append_to_json(self, data):
@@ -85,7 +91,7 @@ class StackOverFlowScraper():
 			json.dump(feeds, outfile, ensure_ascii=False, indent=4)
 
 
-	def initial_search(self):
+	def initial_search(self, keyword):
 		'''
 		Define getting the page making the search and parseing some data, lastly return the questions links
 		:param keyword is the searching word in the search box of stack overflow
@@ -94,8 +100,10 @@ class StackOverFlowScraper():
 		'''
 		# actions
 		self.driver.get('https://stackoverflow.com/')
+		sleep(5)
+		assert self.driver.current_url == 'https://stackoverflow.com/'
 		self.driver.find_element_by_xpath('//input[@name="q"]').click()
-		self.driver.find_element_by_xpath('//input[@name="q"]').send_keys(self.keyword)
+		self.driver.find_element_by_xpath('//input[@name="q"]').send_keys(keyword)
 		self.driver.find_element_by_xpath('//input[@name="q"]').send_keys(Keys.ENTER)
 		print('Waiting 10, 9, 8...')
 		sleep(10)
@@ -115,6 +123,51 @@ class StackOverFlowScraper():
 		data['search_text_result'] = page.xpath('//div[@class="mb24"]//p//text()').get().strip()
 		self.append_to_json(data)
 
+	def load_data(self, file_name):
+		'''
+			:param: file_name: the json file for loading
+			:return: data list
+		'''
+		with open(file_name, 'r', encoding='utf-8') as file:
+			data = json.load(file)
+		return data
+
+	def get_user_links(self, data):
+		'''
+		I use this method in the get user details method
+		:param data is the json file loaded as a list with dicts insidde
+
+
+		'''
+		links = []
+		for i, row in enumerate(data):
+			try:
+				links.append((i, row['question']['question_author_link']))
+			except Exception:
+				continue
+		return links
+
+	def get_user_detail(self, data, link):
+		'''
+		Defines loading the data from file and getting the links form the file, itinerate over links  and save new user info.
+		:param file_name: is teh file from where load data
+
+		'''
+		try:
+			print('following user detail link')
+			self.driver.get(link)
+			print('Waiting 7, 6, 5, 4, 3,...')
+			sleep(7)
+			page = Selector(self.driver.page_source)
+			data['question']['user_answers_made'] = page.xpath('//div[contains(@class,"fs-body3")]/text()').getall()[0]
+			data['question']['user_questions_made'] = page.xpath('//div[contains(@class,"fs-body3")]/text()').getall()[1]
+			data['question']['user_people_reached'] = page.xpath('//div[contains(@class,"fs-body3")]/text()').getall()[2]
+			data['question']['user_member_since'] = page.xpath('//div[contains(text(), "Member")]/span/text()').get()
+			data['question']['user_profile_view'] = page.xpath('//div[contains(text(), "profile view")]/text()').get()
+			data['question']['user_last_see'] = page.xpath('//div[contains(text(), "Last")]/span/text()').get()
+			return data
+		except Exception:
+			pass
 
 	def get_questions_links(self, page):
 		'''
@@ -123,23 +176,26 @@ class StackOverFlowScraper():
 		:return questions_links: is a list with the a full url to each question link
 		'''
 		questions_links = ['https://stackoverflow.com' + link for link in page.xpath("//a[@class='question-hyperlink']/@href").getall()]
+		assert len(questions_links) == int(self.option)
 		return questions_links
 
 
 	def look_for_more_btn_and_click(self):
 		'''
-		Defines clicking in all more button in the comments for reveling more comments
+		Defines clicking in all more button in the comments for reveling more comments in the current url of the driver
 
 		'''
 		more_button_list = self.driver.find_elements_by_xpath('//a[contains(@class,"js-show-link comments-link") and contains(text(),"show")]')
 		for more_btn in more_button_list:
 			self.driver.execute_script("arguments[0].scrollIntoView();", more_btn)
-			sleep(2)
+			sleep(3)
 			more_btn.click()
-			sleep(2)
+			sleep(3)
 
 
-	def parse_data(self, page):
+
+
+	def parse_data(self, page, follow_user_data:bool=False):
 		'''
 		Defines the parsing of the data in the question page, first get the question and them the answers,
 		also click in alll more buttons from comments and them itinerate over comments them for getting the info.
@@ -150,61 +206,70 @@ class StackOverFlowScraper():
 		data = {'question': { } }
 		data['question']['question_title'] = page.xpath('//div[@id="question-header"]/h1/a/text()').get()
 		all_answers = []
-		for i, post in enumerate(page.xpath('//div[@class="post-layout"]')):
-			if i == 0:
-				# inside layout_body: post text
-				data['question']['question_text'] = ''.join(post.xpath('.//div[@class="post-text"]//text()').getall()).strip()
-				# tags only in questions
-				data['question']['question_tags'] = post.xpath('.//div[contains(@class, "post-taglist")]//a/text()').getall()
-				# inside layout_body: user_body
-				question_author_body = post.xpath('.//div[contains(@class,"user-info")]')
-				# inside user_body: user name
-				data['question']['question_author_name'] = question_author_body.xpath('.//div[@class="user-details"]/a/text()').get()
-				# inside user_body: relative link to profile
-				data['question']['question_author_link'] = question_author_body.xpath('.//div[@class="user-details"]/a/@href').get()
-				# inside user_body: reputation points
-				data['question']['question_author_reputation'] = question_author_body.xpath('.//span[@class="reputation-score"]/text()').get()
-				# inside user_body: date
-				data['question']['question_date'] = question_author_body.xpath('.//span[@class="relativetime"]/text()').get()
+		posts = page.xpath('//div[@class="post-layout"]')
+		for i, post in enumerate(posts):
+			try:
+				if i == 0:
+					# inside layout_body: post text
+					data['question']['question_text'] = ''.join(post.xpath('.//div[@class="post-text"]//text()').getall()).strip()
+					# tags only in questions
+					data['question']['question_tags'] = post.xpath('.//div[contains(@class, "post-taglist")]//a/text()').getall()
+					# inside layout_body: user_body
+					question_author_body = post.xpath('.//div[contains(@class,"user-info")]')
+					# inside user_body: user name
+					data['question']['question_author_name'] = question_author_body.xpath('.//div[@class="user-details"]/a/text()').get()
+					# inside user_body: relative link to profile
+					data['question']['question_author_link'] = 'https://stackoverflow.com' + question_author_body.xpath('.//div[@class="user-details"]/a/@href').get()
+					# inside user_body: reputation points
+					data['question']['question_author_reputation'] = question_author_body.xpath('.//span[@class="reputation-score"]/text()').get()
+					# inside user_body: date
+					data['question']['question_date'] = question_author_body.xpath('.//span[@class="relativetime"]/text()').get()
 
-				comment_list = []
-				# inside layout_body: comments list
-				for comment in post.xpath('.//div[contains(@class, "comment-text")]'):
-					comment_data = {}
-					# for comments inside comments list: comment text
-					comment_data['text'] = comment.xpath('.//div[contains(@class, "comment-body")]/span/text()').get()
-					# for comments inside comments list: comment author
-					comment_data['author'] = comment.xpath('.//div[contains(@class, "comment-body")]/a/text()').get()
-					# for comments inside comments list: relativetime
-					comment_data['date'] = comment.xpath('.//span[contains(@class, "relativetime")]/text()').get()
-					comment_list.append(comment_data)
-				data['question']['question_comments'] = comment_list
+					comment_list = []
+					# inside layout_body: comments list
+					for comment in post.xpath('.//div[contains(@class, "comment-text")]'):
+						comment_data = {}
+						# for comments inside comments list: comment text
+						comment_data['text'] = comment.xpath('.//div[contains(@class, "comment-body")]/span/text()').get()
+						# for comments inside comments list: comment author
+						comment_data['author'] = comment.xpath('.//div[contains(@class, "comment-body")]/a/text()').get()
+						# for comments inside comments list: relativetime
+						comment_data['date'] = comment.xpath('.//span[contains(@class, "relativetime")]/text()').get()
+						comment_list.append(comment_data)
+					data['question']['question_comments'] = comment_list
 
-			else:
-				answer = {}
-				answer['text'] = ''.join(post.xpath('.//div[@class="post-text"]//text()').getall()).strip()
-				answer_author_body = post.xpath('.//div[contains(@class,"user-info")]')
-				answer['author'] = answer_author_body.xpath('.//div[@class="user-details"]/a/text()').get()
-				answer['author_link'] = answer_author_body.xpath('.//div[@class="user-details"]/a/@href').get()
-				answer['author_reputation'] = answer_author_body.xpath('.//span[@class="reputation-score"]/text()').get()
-				answer['date'] = answer_author_body.xpath('.//span[@class="relativetime"]/text()').get()
-				comment_list = []
-				for comment in post.xpath('.//div[contains(@class, "comment-text")]'):
-					comment_data = {}
-					# for comments inside comments list: comment text
-					comment_data['text'] = comment.xpath('.//div[contains(@class, "comment-body")]/span/text()').get()
-					# for comments inside comments list: comment author
-					comment_data['author'] = comment.xpath('.//div[contains(@class, "comment-body")]/a/text()').get()
-					# for comments inside comments list: relativetime
-					comment_data['date'] = comment.xpath('.//span[contains(@class, "relativetime")]/text()').get()
-					comment_list.append(comment_data)
-				answer['comments'] = comment_list
-				all_answers.append(answer)
+				else:
+					answer = {}
+					answer['text'] = ''.join(post.xpath('.//div[@class="post-text"]//text()').getall()).strip()
+					answer_author_body = post.xpath('.//div[contains(@class,"user-info")]')
+					answer['author'] = answer_author_body.xpath('.//div[@class="user-details"]/a/text()').get()
+					answer['author_link'] = answer_author_body.xpath('.//div[@class="user-details"]/a/@href').get()
+					answer['author_reputation'] = answer_author_body.xpath('.//span[@class="reputation-score"]/text()').get()
+					answer['date'] = answer_author_body.xpath('.//span[@class="relativetime"]/text()').get()
+					comment_list = []
+					for comment in post.xpath('.//div[contains(@class, "comment-text")]'):
+						comment_data = {}
+						# for comments inside comments list: comment text
+						comment_data['text'] = comment.xpath('.//div[contains(@class, "comment-body")]/span/text()').get()
+						# for comments inside comments list: comment author
+						comment_data['author'] = comment.xpath('.//div[contains(@class, "comment-body")]/a/text()').get()
+						# for comments inside comments list: relativetime
+						comment_data['date'] = comment.xpath('.//span[contains(@class, "relativetime")]/text()').get()
+						comment_list.append(comment_data)
+					answer['comments'] = comment_list
+					all_answers.append(answer)
+			except Exception:
+				continue
+			except KeyboardInterrupt:
+				break
 		data['question']['all_asnwers'] = all_answers
+		if follow_user_data:
+			link = data['question']['question_author_link']
+			data = self.get_user_detail(data, link)
 		return data
 
 
-	def setup_question_per_page_option(self):
+	def setup_question_per_page_option(self, option):
 		'''
 		In the result page of the search, this function set up the
 		quantity of question per page
@@ -218,34 +283,41 @@ class StackOverFlowScraper():
 			popup_element.click()
 		except:
 			pass
-		if self.option == '15':
+		if option == '15':
 			pass
-		elif self.option == '30':
+		elif option == '30':
 			print('Setting 30 question by page')
 			question_30 = self.driver.find_element_by_xpath('//a[contains(@title, "Show 30")]')
 			self.driver.execute_script("arguments[0].scrollIntoView", question_30)
 			sleep(3)
 			question_30.click()
 			sleep(3)
-		elif self.option == '50':
+			assert '30' in self.driver.current_url
+		elif option == '50':
 			print('Setting 50 question by page')
 			question_50 = self.driver.find_element_by_xpath('//a[contains(@title, "Show 50")]')
 			self.driver.execute_script("arguments[0].scrollIntoView", question_50)
 			sleep(3)
 			question_50.click()
 			sleep(3)
+			assert '50' in self.driver.current_url
 		return Selector(self.driver.page_source)
 
 	def run(self):
+		'''
+		Defines  Makingthe initial search, extracting links follow next page for more links until reach page 2.
+		Follow links to each questions parsing the data and appending it to json file.
+
+		'''
 
 		# make the initial search
 		print('Starting Stack Overflow Scraper')
 		self.init_file(self.file_name)
-		page = self.initial_search()
+		page = self.initial_search(self.keyword)
 		self.save_search_data(page)
 		all_questions_links = []
 		# Get all links to questions in this page
-		page = self.setup_question_per_page_option()
+		page = self.setup_question_per_page_option(self.option)
 		questions_links = self.get_questions_links(page)
 		# save the links
 		all_questions_links.extend(questions_links)
@@ -275,11 +347,13 @@ class StackOverFlowScraper():
 			except KeyboardInterrupt:
 				print('Closing Scraper')
 				self.driver.close()
-			except Exception:
-				pass
+			except Exception as error:
+				print(f'I catch this error: {error}')
+				continue
 		print('I will start visiting links of question for getting the data')
 		# now we have all links, now is time for getting the data of each question
-		for i, link_to_question in enumerate(all_questions_links):
+		maximum_question  = int(self.max_question) if self.max_question is not None else len(all_questions_links)
+		for i, link_to_question in enumerate(all_questions_links[:maximum_question]):
 			try:
 				print(f'Going to link of question number {i + 1}')
 				self.driver.get(link_to_question)
@@ -291,40 +365,17 @@ class StackOverFlowScraper():
 				# we get the source page again becouse of the possible new comments redered
 				source_page = self.driver.page_source
 				page = Selector(source_page)
-				data = self.parse_data(page)
+				data = self.parse_data(page, follow_user_data=self.follow_user_data)
 				print('Appending data to json file')
-				self.append_to_json(self.file_name, data)
+				self.append_to_json(data=data)
 			except KeyboardInterrupt:
 				print('Closing Scraper')
 				self.driver.close()
-			except Exception:
-				pass
+			except Exception as error:
+				print(f'I catch this error: {error}')
+				continue
 		print('Process finish Sr!')
-
-
-
-
-
-
-# if __name__ == "__main__":
-#
-# 	# getting argument from command line
-# 	parser = argparse.ArgumentParser()
-# 	parser.add_argument("--question_by_page", type=str, help="Quantidade de perguntas por pagina, opcoes validas: 15, 30 e 50")
-# 	parser.add_argument("--keyword", type=str, help="the keyword for the search")
-# 	args = parser.parse_args()
-# 	# the keyword for making the searc
-# 	if args.keyword:
-# 		keyword = args.keyword
-# 	# the quenaitty of questions per page in the results page of the search
-# 	if (args.question_by_page != '15' and args.question_by_page != '30' and args.question_by_page != '50'):
-# 	# default value is 15
-# 		question_by_page = '15'
-# 		print('Setting default value of question by page equal 15')
-# 	else:
-# 		question_by_page = args.question_by_page
-
-
+		self.driver.close()
 
 
 

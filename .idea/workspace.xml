@@ -2,13 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2ac5447-3849-4d04-a749-c776d88af32c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/source/scraper/selenium_scraper/scraper_class.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/api_flask/errors_handlers/templates/errors/403.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/api_flask/errors_handlers/templates/errors/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/api_flask/errors_handlers/templates/errors/500.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/scraper/selenium_scraper/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/scraper/selenium_scraper/tests/tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/api_flask/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/api_flask/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/api_flask/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/api_flask/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/api_flask/tests/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/api_flask/tests/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/api_flask/errors_handlers/error_handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/data/data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/data/data2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/data/data_scraper_selenium.json" beforeDir="false" afterPath="$PROJECT_DIR$/source/data/data3.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/spiders/stackOverflowSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/spiders/stackOverflowSpider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scraper/scrapy_scraper/scrapy.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/api_flask/errors_handlers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/items.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/middlewares.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/pipelines.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/spiders/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/spiders/stackOverflowSpider.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scraper/selenium_scraper/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/source/scraper/selenium_scraper/geckodriver.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/scraper/selenium_scraper/scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/scraper/selenium_scraper/scraper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/scraper/selenium_scraper/test_path_resolve.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/scraper/selenium_scraper/test_path_resolve.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scraper/selenium_scraper/scraper_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/scraper/selenium_scraper/scraper_class.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scraper/selenium_scraper/scraper_development.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/source/scraper/selenium_scraper/scraper_development.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scraper/selenium_scraper/test_path_resolve.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scraper/selenium_scraper/trash.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/scraper/selenium_scraper/trash.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,85 +40,107 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.48029557">
-      <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/source/main.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="450">
-                  <caret line="33" column="34" lean-forward="true" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
-                  <folding>
-                    <element signature="e#62#101#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/test_path_resolve.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="395">
-                  <caret line="34" lean-forward="true" selection-start-line="10" selection-end-line="34" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/scraper_class.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="454">
-                  <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
-                  <folding>
-                    <element signature="e#0#47#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/scraper.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2153">
-                  <caret line="295" column="8" selection-start-line="295" selection-start-column="8" selection-end-line="295" selection-end-column="8" />
-                  <folding>
-                    <element signature="e#1#31#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/source/api_flask/app.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="348">
-                  <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
-                  <folding>
-                    <element signature="e#0#23#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/scraper.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3560">
-                  <caret line="306" selection-start-line="306" selection-end-line="306" />
-                  <folding>
-                    <element signature="e#1#31#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="78" selection-start-line="13" selection-start-column="78" selection-end-line="13" selection-end-column="78" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/data/data4_python.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="47" column="42" lean-forward="true" selection-start-line="42" selection-start-column="11" selection-end-line="47" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/scraper_class.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-135">
+              <caret line="30" column="54" lean-forward="true" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/api_flask/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="885">
+              <caret line="68" column="7" lean-forward="true" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/scraper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="17" selection-start-line="10" selection-end-line="42" selection-end-column="5" />
+              <folding>
+                <element signature="e#1#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="215">
+                <caret line="107" selection-start-line="107" selection-end-line="107" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/tests/tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="92" column="30" lean-forward="true" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/api_flask/tests/tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="58" column="49" lean-forward="true" selection-start-line="50" selection-end-line="58" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -118,6 +163,12 @@
       <find>page</find>
       <find>keyword</find>
       <find>option</find>
+      <find>This user make</find>
+      <find>this user make</find>
+      <find>this</find>
+      <find>stack</find>
+      <find>parse</find>
+      <find>parse_data</find>
     </findStrings>
     <replaceStrings>
       <replace>get_comment_question</replace>
@@ -142,21 +193,33 @@
         <option value="$PROJECT_DIR$/kognita/scraper/selenium_scraper/scraper.py" />
         <option value="$PROJECT_DIR$/kognita/main.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/source/api_flask/tests/tests.py" />
-        <option value="$PROJECT_DIR$/source/data/data.py" />
-        <option value="$PROJECT_DIR$/source/api_flask/app.py" />
         <option value="$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/spiders/stackOverflowSpider.py" />
         <option value="$PROJECT_DIR$/source/scraper/selenium_scraper/Spider.py" />
         <option value="$PROJECT_DIR$/source/scraper/selenium_scraper/scraper_class.py" />
+        <option value="$PROJECT_DIR$/source/data/data.py" />
         <option value="$PROJECT_DIR$/source/scraper/selenium_scraper/test_path_resolve.py" />
+        <option value="$PROJECT_DIR$/source/scraper/selenium_scraper/trash.py" />
+        <option value="$PROJECT_DIR$/source/api_flask/__init__.py" />
+        <option value="$PROJECT_DIR$/source/api_flask/errors_handlers/templates/errors/500.html" />
+        <option value="$PROJECT_DIR$/source/api_flask/errors_handlers/templates/errors/404.html" />
+        <option value="$PROJECT_DIR$/source/api_flask/errors_handlers/templates/errors/403.html" />
+        <option value="$PROJECT_DIR$/source/api_flask/errors_handlers/error_handlers.py" />
+        <option value="$PROJECT_DIR$/source/api_flask/app.py" />
+        <option value="$PROJECT_DIR$/source/api_flask/tests/tests.py" />
+        <option value="$PROJECT_DIR$/source/config.py" />
+        <option value="$PROJECT_DIR$/source/data/test_data_python.json" />
+        <option value="$PROJECT_DIR$/source/scraper/selenium_scraper/tests/tests.py" />
         <option value="$PROJECT_DIR$/source/scraper/selenium_scraper/scraper.py" />
         <option value="$PROJECT_DIR$/source/main.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1030" />
+    <option name="y" value="417" />
     <option name="width" value="1594" />
-    <option name="height" value="896" />
+    <option name="height" value="483" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -172,11 +235,6 @@
               <item name="kognita" type="b2602c69:ProjectViewProjectNode" />
               <item name="kognita" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="kognita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kognita" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -186,16 +244,17 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/data" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/api_flask/errors_handlers" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Python" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/source/data" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/kognita" />
       <recent name="$PROJECT_DIR$/kognita/scraper" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/api_flask/errors_handlers" />
+      <recent name="$PROJECT_DIR$/source/data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -283,43 +342,43 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1594" height="896" extended-state="0" />
+    <frame x="1023" y="0" width="1602" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2111399" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21002539" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" sideWeight="0.49935567" weight="0.32945737" />
       <window_info anchor="bottom" id="Python Console" order="1" sideWeight="0.49936548" weight="0.32945737" />
-      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.6632124" weight="0.587013" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="2" sideWeight="0.65482235" visible="true" weight="0.52067184" />
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.16941625" side_tool="true" weight="0.32945737" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.80569947" visible="true" weight="0.038961038" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.8042092" weight="0.23636363" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" sideWeight="0.49873096" weight="0.32945737" />
-      <window_info anchor="bottom" x="0" y="0" width="142" height="692" id="Documentation" order="10" sideWeight="0.19430052" side_tool="true" visible="true" weight="0.038961038" />
+      <window_info anchor="bottom" x="0" y="0" width="142" height="692" id="Documentation" order="10" sideWeight="0.34517765" side_tool="true" visible="true" weight="0.52067184" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Debug" order="3" side_tool="true" weight="0.19394329" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.21005155" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21002539" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" sideWeight="0.49935567" weight="0.32945737" />
       <window_info anchor="bottom" id="Python Console" order="1" sideWeight="0.49936548" weight="0.32945737" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="2" sideWeight="0.66430414" visible="true" weight="0.4521964" />
+      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.65736043" visible="true" weight="0.12790698" />
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.16941625" side_tool="true" weight="0.32945737" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.806701" weight="0.4018088" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.8042092" weight="0.23636363" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" sideWeight="0.49873096" weight="0.32945737" />
-      <window_info anchor="bottom" x="0" y="0" width="142" height="692" id="Documentation" order="10" sideWeight="0.33569586" side_tool="true" visible="true" weight="0.4521964" />
+      <window_info anchor="bottom" x="0" y="0" width="142" height="692" id="Documentation" order="10" sideWeight="0.3426396" side_tool="true" visible="true" weight="0.12790698" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -372,9 +431,6 @@
     <entry file="file://$PROJECT_DIR$/kognita/scraper/bot.py" />
     <entry file="file://$PROJECT_DIR$/kognita/scraper/data2.json" />
     <entry file="file://$PROJECT_DIR$/kognita/scraper/scraper.py" />
-    <entry file="file://$PROJECT_DIR$/source/data/data2.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/data/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -385,30 +441,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/data/data_scraper_selenium.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/api_flask/tests/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/data/data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -423,58 +459,170 @@
     <entry file="file://$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/pipelines.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/Spider.py" />
+    <entry file="file://$PROJECT_DIR$/source/data/data2.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/data/data3.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3960" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/data/data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/spiders/stackOverflowSpider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/Spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/api_flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
+        <state relative-caret-position="165">
+          <caret line="101" column="69" lean-forward="true" selection-start-line="101" selection-start-column="69" selection-end-line="101" selection-end-column="69" />
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#24#37#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/test_path_resolve.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/api_flask/errors_handlers/templates/errors/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/api_flask/errors_handlers/templates/errors/500.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/api_flask/errors_handlers/templates/errors/403.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/api_flask/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/api_flask/tests/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/api_flask/errors_handlers/error_handlers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/data.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/trash.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="42" />
+        <state relative-caret-position="45">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/data/data7_python.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/api_flask/tests/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="58" column="49" lean-forward="true" selection-start-line="50" selection-end-line="58" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/data/test_data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2205">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/scraper_class.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
+        <state relative-caret-position="-135">
+          <caret line="30" column="54" lean-forward="true" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/test_path_resolve.py">
+    <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/tests/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="34" lean-forward="true" selection-start-line="10" selection-end-line="34" />
+        <state relative-caret-position="392">
+          <caret line="92" column="30" lean-forward="true" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/data/test_data_python.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/api_flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="68" column="7" lean-forward="true" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/data/otimo_python.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1225" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/data/data4_python.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="47" column="42" lean-forward="true" selection-start-line="42" selection-start-column="11" selection-end-line="47" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/scraper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2153">
-          <caret line="295" column="8" selection-start-line="295" selection-start-column="8" selection-end-line="295" selection-end-column="8" />
+        <state relative-caret-position="210">
+          <caret line="14" column="17" selection-start-line="10" selection-end-line="42" selection-end-column="5" />
           <folding>
             <element signature="e#1#31#0" expanded="true" />
           </folding>
@@ -483,11 +631,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="33" column="34" lean-forward="true" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+        <state relative-caret-position="195">
+          <caret line="13" column="78" selection-start-line="13" selection-start-column="78" selection-end-line="13" selection-end-column="78" />
           <folding>
-            <element signature="e#62#101#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="215">
+            <caret line="107" selection-start-line="107" selection-end-line="107" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

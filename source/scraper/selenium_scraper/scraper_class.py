@@ -25,7 +25,7 @@ class Scraper():
         self.driver = webdriver.Firefox(executable_path=path_to_driver, options=options)
         sleep(10)
 
-    def __rpr___:
+    def __rpr___(self):
         ''':param
         The representation of the object put here
         all the information that you wont to follow'''
@@ -68,7 +68,9 @@ class Scraper():
 
     def next_loop(self):
         for i in range(self.next_limit):
-            self.driver
+            self.driver.get('')
+            pass
+
 
 
 
