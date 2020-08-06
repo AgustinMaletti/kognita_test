@@ -8,6 +8,7 @@ import json
 import argparse
 import pathlib
 from source.config import BASE_DIR_DATA
+from scrapy.linkextractors import LinkExtractor
 
 # DATA STRUCTURE
 """
@@ -31,27 +32,28 @@ from source.config import BASE_DIR_DATA
                            				       "answer_date": "",
                            				       "answer_comments": [{"text": "",
                                             	    			     "author":"",
-                                                 	     			 "date": ""
-												 			               }],
-                         				  }]
-                        }
-        }
-	"""
+                                                 	     			 "date": "",
+												 			       }],
+                        	  }]
+                   }
+    }
+"""
 
 
 class StackOverFlowScraper():
 
-	def __init__(self):
+	def __init__(self,keyword:str, file_name:str, option:str):
+		'''
+		:param option is 15 or 30 or 50 questions by page
 
+		'''
 		# Setup the browser
-		# path to browser bin
 		PATH = pathlib.Path(__file__).parent
 		path_to_driver = PATH.joinpath('geckodriver').resolve().__str__()
-		# file for saving data
 		file_name_data = BASE_DIR_DATA.joinpath('data2.json')
-		# keyword for search
-		keyword = 'python'
-		# Defines the options and preference for the firefox browser
+		self.keyword = keyword
+		self.file_name = file_name
+		self.option = option
 		options = Options()
 		firefox_profile = webdriver.FirefoxProfile()
 		firefox_profile.DEFAULT_PREFERENCES['frozen']["javascript.enabled"] = True
@@ -70,20 +72,20 @@ class StackOverFlowScraper():
 			json.dump([], file)
 
 
-	def append_to_json(self, file_name:str, data):
+	def append_to_json(self, data):
 		'''
 		Defines the loading and appending method used for updating the file
 		:param file_name: is the name of the json file to wich we append
 		:param data: is the dictionary of data we are appending
 		'''
-		with open(file_name, 'r', encoding='utf-8') as feedjson:
+		with open(self.file_name, 'r', encoding='utf-8') as feedjson:
 			feeds = json.load(feedjson)
-		with open(file_name, 'w', encoding='utf-8') as outfile:
+		with open(self.file_name, 'w', encoding='utf-8') as outfile:
 			feeds.append(data)
 			json.dump(feeds, outfile, ensure_ascii=False, indent=4)
 
 
-	def initial_search(self, keyword:str):
+	def initial_search(self):
 		'''
 		Define getting the page making the search and parseing some data, lastly return the questions links
 		:param keyword is the searching word in the search box of stack overflow
@@ -93,7 +95,7 @@ class StackOverFlowScraper():
 		# actions
 		self.driver.get('https://stackoverflow.com/')
 		self.driver.find_element_by_xpath('//input[@name="q"]').click()
-		self.driver.find_element_by_xpath('//input[@name="q"]').send_keys(keyword)
+		self.driver.find_element_by_xpath('//input[@name="q"]').send_keys(self.keyword)
 		self.driver.find_element_by_xpath('//input[@name="q"]').send_keys(Keys.ENTER)
 		print('Waiting 10, 9, 8...')
 		sleep(10)
@@ -101,17 +103,17 @@ class StackOverFlowScraper():
 		page = Selector(self.driver.page_source)
 		return page
 
-	def save_search_data(self, keyword, file_name, page):
+	def save_search_data(self, page):
 		'''
 			Defines the saving of the initial searhc data
 		   :param keyword: is the keyword of the search
 		   :param file_name is the json file we are using for saving the data
 		'''
 		data = {}
-		data['search_query'] = keyword
+		data['search_query'] = self.keyword
 		data['search_title_result'] = page.xpath('//h1[contains(@class,"grid--cell")]/text()').get().strip()
 		data['search_text_result'] = page.xpath('//div[@class="mb24"]//p//text()').get().strip()
-		self.append_to_json(file_name, data)
+		self.append_to_json(data)
 
 
 	def get_questions_links(self, page):
@@ -202,7 +204,7 @@ class StackOverFlowScraper():
 		return data
 
 
-	def setup_question_per_page_option(self, option):
+	def setup_question_per_page_option(self):
 		'''
 		In the result page of the search, this function set up the
 		quantity of question per page
@@ -216,16 +218,16 @@ class StackOverFlowScraper():
 			popup_element.click()
 		except:
 			pass
-		if option == '15':
+		if self.option == '15':
 			pass
-		elif option == '30':
+		elif self.option == '30':
 			print('Setting 30 question by page')
 			question_30 = self.driver.find_element_by_xpath('//a[contains(@title, "Show 30")]')
 			self.driver.execute_script("arguments[0].scrollIntoView", question_30)
 			sleep(3)
 			question_30.click()
 			sleep(3)
-		elif option == '50':
+		elif self.option == '50':
 			print('Setting 50 question by page')
 			question_50 = self.driver.find_element_by_xpath('//a[contains(@title, "Show 50")]')
 			self.driver.execute_script("arguments[0].scrollIntoView", question_50)
@@ -234,16 +236,16 @@ class StackOverFlowScraper():
 			sleep(3)
 		return Selector(self.driver.page_source)
 
-	def run(self, file_name_data, keyword, question_by_page):
+	def run(self):
 
 		# make the initial search
 		print('Starting Stack Overflow Scraper')
-		self.init_file(file_name_data)
-		page = self.initial_search(keyword)
-		self.save_search_data(keyword, file_name_data, page)
+		self.init_file(self.file_name)
+		page = self.initial_search()
+		self.save_search_data(page)
 		all_questions_links = []
 		# Get all links to questions in this page
-		page = self.setup_question_per_page_option(question_by_page)
+		page = self.setup_question_per_page_option()
 		questions_links = self.get_questions_links(page)
 		# save the links
 		all_questions_links.extend(questions_links)
@@ -251,9 +253,9 @@ class StackOverFlowScraper():
 		for i in range(3):
 			try:
 				# get the number of the current page
-				current_page = page.xpath('//div[contains(@class, "s-pagination--item is-selected")]/text()').get()
+				current_page = int(page.xpath('//div[contains(@class, "s-pagination--item is-selected")]/text()').get())
 				# check it: if the current page is above two proceed to next page and extract and save more links
-				if int(current_page) <= 2:
+				if current_page <= 2:
 					print(f'Current number page is {current_page}')
 					# get the relative link to next page
 					next_href = page.xpath('//a[@rel="next"]/@href').get()
@@ -291,7 +293,7 @@ class StackOverFlowScraper():
 				page = Selector(source_page)
 				data = self.parse_data(page)
 				print('Appending data to json file')
-				self.append_to_json(file_name_data, data)
+				self.append_to_json(self.file_name, data)
 			except KeyboardInterrupt:
 				print('Closing Scraper')
 				self.driver.close()
@@ -300,23 +302,27 @@ class StackOverFlowScraper():
 		print('Process finish Sr!')
 
 
-if __name__ == "__main__":
 
-	# getting argument from command line
-	parser = argparse.ArgumentParser()
-	parser.add_argument("--question_by_page", type=str, help="Quantidade de perguntas por pagina, opcoes validas: 15, 30 e 50")
-	parser.add_argument("--keyword", type=str, help="the keyword for the search")
-	args = parser.parse_args()
-	# the keyword for making the searc
-	if args.keyword:
-		keyword = args.keyword
-	# the quenaitty of questions per page in the results page of the search
-	if (args.question_by_page != '15' and args.question_by_page != '30' and args.question_by_page != '50'):
-	# default value is 15
-		question_by_page = '15'
-		print('Setting default value of question by page equal 15')
-	else:
-		question_by_page = args.question_by_page
+
+
+
+# if __name__ == "__main__":
+#
+# 	# getting argument from command line
+# 	parser = argparse.ArgumentParser()
+# 	parser.add_argument("--question_by_page", type=str, help="Quantidade de perguntas por pagina, opcoes validas: 15, 30 e 50")
+# 	parser.add_argument("--keyword", type=str, help="the keyword for the search")
+# 	args = parser.parse_args()
+# 	# the keyword for making the searc
+# 	if args.keyword:
+# 		keyword = args.keyword
+# 	# the quenaitty of questions per page in the results page of the search
+# 	if (args.question_by_page != '15' and args.question_by_page != '30' and args.question_by_page != '50'):
+# 	# default value is 15
+# 		question_by_page = '15'
+# 		print('Setting default value of question by page equal 15')
+# 	else:
+# 		question_by_page = args.question_by_page
 
 
 

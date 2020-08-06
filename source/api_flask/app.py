@@ -23,7 +23,6 @@ def get_data(author_name):
         response = jsonify(data), 200
     else:
         response = {"data": "No data for that user"}, 404
-
     return response
 
 

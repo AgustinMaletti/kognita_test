@@ -8,41 +8,54 @@ from selenium.webdriver.firefox.options import Options
 from parsel import Selector
 from time import sleep
 from scrapy.crawler import CrawlerProcess
+from scrapy import Spider
+from scrapy import Request
+
 
 path_to_driver = '/home/baltasar/Desktop/ScrapyBoy/kognita/kognita/scraper/geckodriver'
 
 
-class StackoverflowspiderSpider(CrawlSpider):
+class StackoverflowspiderSpider(Spider):
     name = 'stackOverflowSpider'
-    allowed_domains = ['https://stackoverflow.com/questions/tagged/python']
-    start_urls = ['http://https://stackoverflow.com/questions/tagged/python/']
+    allowed_domains = ['stackoverflow.com']
+    start_urls = ['https://stackoverflow.com/questions/tagged/python/']
 
-    rules = (
-        Rule(LinkExtractor(restrict_xpaths='//a[@rel="next"]/@href'), follow=True),
-        Rule(LinkExtractor(restrict_xpaths="//a[@class='question-hyperlink']/@href"), callback='parse_data', follow=True)
-            )
+    # *args, ** kwargs
+    # def __init___(self):
+    #     # super(StackoverflowspiderSpider, self).__init__(*args, **kwargs)
+    #     options = Options()
+    #     firefox_profile = webdriver.FirefoxProfile()
+    #     firefox_profile.DEFAULT_PREFERENCES['frozen']["javascript.enabled"] = True
+    #     options.profile = firefox_profile
+    #     # self.driver = webdriver.Firefox(executable_path=path_to_driver, options=options)
 
-    def __init___(self, *args, **kwargs):
-        super(StackoverflowspiderSpider, self).__init__(*args, **kwargs)
-        options = Options()
-        firefox_profile = webdriver.FirefoxProfile()
-        firefox_profile.DEFAULT_PREFERENCES['frozen']["javascript.enabled"] = True
-        options.profile = firefox_profile
-        self.driver = webdriver.Firefox(executable_path=path_to_driver, options=options)
 
-    def selenium_get(self, response):
-        self.driver.get(response.url)
-        sleep(7)
-        source_page = self.driver.page_source
-        page = Selector(source_page)
-        return page
+    # def selenium_get(self, response):
+    #     # self.driver.get(response.url)
+    #     sleep(7)
+    #     source_page = self.driver.page_source
+    #     page = Selector(source_page)
+    #     return page
+
+
+    def parse(self, response):
+        # page = self.selenium_get(response.url)
+
+        for href in response.xpath('//a[@class="question-hyperlink"]').getall():
+            yield Request(response.urljoin(href), self.parse_data)
+
+        current_page =  int(response.xpath('//div[contains(@class, "s-pagination--item is-selected")]/text()').get())
+        if current_response <= 2:
+            next_page = response.xpath('//a[@rel="next"]').get()
+            yield Request(response.urljoin(next_page), self.parse)
+
 
     def parse_data(self, response):
-        page = self.selenium_get(response)
+        # page = self.selenium_get(response)
         data = {'question': {}}
-        data['question']['question_title'] = page.xpath('//div[@id="question-header"]/h1/a/text()').get()
+        data['question']['question_title'] = response.xpath('//div[@id="question-header"]/h1/a/text()').get()
         all_answers = []
-        for i, post in enumerate(page.xpath('//div[@class="post-layout"]')):
+        for i, post in enumerate(response.xpath('//div[@class="post-layout"]')):
             if i == 0:
                 # inside layout_body: post text
                 data['question']['question_text'] = ''.join(post.xpath('.//div[@class="post-text"]//text()').getall()).strip()
@@ -71,7 +84,6 @@ class StackoverflowspiderSpider(CrawlSpider):
                     comment_data['date'] = comment.xpath('.//span[contains(@class, "relativetime")]/text()').get()
                     comment_list.append(comment_data)
                 data['question']['question_comments'] = comment_list
-
             else:
                 answer = {}
                 answer['text'] = ''.join(post.xpath('.//div[@class="post-text"]//text()').getall()).strip()
@@ -93,26 +105,37 @@ class StackoverflowspiderSpider(CrawlSpider):
                 answer['comments'] = comment_list
                 all_answers.append(answer)
         data['question']['all_answers'] = all_answers
-
-        user_link = page.xpath('//div[@itemprop="author"]/a/@href').get()
-        return response.follow(user_link, self.parse_more_user_info, cb_kwargs=dict(data=data))
+        user_link = response.xpath('//div[@itemprop="author"]/a/@href').get()
+        yield response.follow(user_link, self.parse_more_user_info, cb_kwargs=dict(data=data))
 
     def parse_more_user_info(self, response, data):
-        page = self.selenium_get(response)
-        data['question']['answers_made'] = page.xpath('//div[contains(@class,"fs-body3")]/text()').getall()[0]
-        data['question']['question_made'] = page.xpath('//div[contains(@class,"fs-body3")]/text()').getall()[1]
-        data['question']['people_reached'] = page.xpath('//div[contains(@class,"fs-body3")]/text()').getall()[2]
-        data['question']['member_since'] = page.xpath('//div[contains(text(), "Member")]/span/text()').get()
-        data['question']['profile_view'] = page.xpath('//div[contains(text(), "profile view")]/text()').get()
-        data['question']['last_see'] = page.xpath('//div[contains(text(), "Last")]/span/text()').get()
-        return data
+        # page = self.selenium_get(response)
+        data['question']['answers_made'] = response.xpath('//div[contains(@class,"fs-body3")]/text()').getall()[0]
+        data['question']['question_made'] = response.xpath('//div[contains(@class,"fs-body3")]/text()').getall()[1]
+        data['question']['people_reached'] = response.xpath('//div[contains(@class,"fs-body3")]/text()').getall()[2]
+        data['question']['member_since'] = response.xpath('//div[contains(text(), "Member")]/span/text()').get()
+        data['question']['profile_view'] = response.xpath('//div[contains(text(), "profile view")]/text()').get()
+        data['question']['last_see'] = response.xpath('//div[contains(text(), "Last")]/span/text()').get()
+        yield data
 
 
 process = CrawlerProcess(settings={ "CLOSESPIDER_PAGECOUNT":30,
                                     "FEEDS": {"items.json": {"format": "json"},},
+                                    "DOWNLOAD_DELAY": 5,
                                    }
                         )
 
 if __name__ == "__main__":
     process.crawl(StackoverflowspiderSpider)
     process.start()
+
+
+
+
+# def start_requests(self):
+#     for link in start_
+#
+# rules = (
+#     Rule(LinkExtractor(restrict_xpaths=['//a[@rel="next"]']), follow=True),
+#     Rule(LinkExtractor(restrict_xpaths=['//a[@class="question-hyperlink"]']), callback='parse_data', follow=True)
+#         )
