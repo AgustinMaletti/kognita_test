@@ -71,7 +71,7 @@ class QuestionSpider(Spider):
                     comment_list = self.get_comment_data(page_frag=post)
                     data['question']['question_comments'] = comment_list
                 else:
-                    question_id = response.xpath('//div[@class="question"]/@data-questionid').get()
+                    question_id = post.xpath('.//div/@data-post-id').get()
                     resp = requests.get(f'https://stackoverflow.com/posts/{question_id}/comments')
                     page_frag  = Selector(resp)
                     comment_list = self.get_comment_data(page_frag=page_frag)
@@ -91,8 +91,9 @@ class QuestionSpider(Spider):
                     comment_list = self.get_comment_data(page_frag=post)
                     answer['comments'] = comment_list
                 else:
-                    question_id = response.xpath('//div[@class="question"]/@data-questionid').get()
-                    resp = requests.get(f'https://stackoverflow.com/posts/{question_id}/comments')
+                    
+                    answer_id = post.xpath('.//div/@data-post-id').get()
+                    resp = requests.get(f'https://stackoverflow.com/posts/{answer_id}/comments')
                     page_frag  = Selector(resp)
                     comment_list = self.get_comment_data(page_frag=page_frag)
                     answer['comments'] = comment_list
