@@ -86,7 +86,16 @@ class QuestionSpider(Spider):
                 answer['author_reputation'] = answer_author_body.xpath('.//span[@class="reputation-score"]/text()').get()
                 answer['date'] = answer_author_body.xpath('.//span[@class="relativetime"]/text()').get()
                 comment_list = self.get_comment_data(page_frag=post)
-                answer['comments'] = comment_list
+                 # inside layout_body: comments list
+                if  len(more_button) == 0:
+                    comment_list = self.get_comment_data(page_frag=post)
+                    answer['comments'] = comment_list
+                else:
+                    question_id = response.xpath('//div[@class="question"]/@data-questionid').get()
+                    resp = requests.get(f'https://stackoverflow.com/posts/{question_id}/comments')
+                    page_frag  = Selector(resp)
+                    comment_list = self.get_comment_data(page_frag=page_frag)
+                    answer['comments'] = comment_list
                 all_answers.append(answer)
         data['question']['all_answers'] = all_answers
         user_link = response.xpath('//div[@itemprop="author"]/a/@href').get()
