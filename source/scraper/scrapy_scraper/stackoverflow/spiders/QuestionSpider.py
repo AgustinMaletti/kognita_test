@@ -85,7 +85,7 @@ class QuestionSpider(Spider):
                 answer['author_link'] = answer_author_body.xpath('.//div[@class="user-details"]/a/@href').get()
                 answer['author_reputation'] = answer_author_body.xpath('.//span[@class="reputation-score"]/text()').get()
                 answer['date'] = answer_author_body.xpath('.//span[@class="relativetime"]/text()').get()
-                comment_list = self.get_comment_data(page_frag=post)
+                more_button = post.xpath('.//a[contains(@class,"js-show-link")]//text()[contains(., "show")]')
                  # inside layout_body: comments list
                 if  len(more_button) == 0:
                     comment_list = self.get_comment_data(page_frag=post)
