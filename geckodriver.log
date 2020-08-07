@@ -358,3 +358,71 @@ JavaScript error: , line 0: UnknownError: The operation failed for reasons unrel
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1596757695739	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.tkkLTHok6NtF"
+1596757715773	Marionette	INFO	Listening on port 45457
+1596757715959	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(firefox:11988): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7fe3b69439c0' of type 'MaiAtkType139'
+1596757724500	Marionette	INFO	Stopped listening on port 45457
+JavaScript error: , line 0: uncaught exception: undefined
+1596757729168	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.5oTAoRhKMm53"
+1596757733028	Marionette	INFO	Listening on port 44519
+1596757733082	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(firefox:12273): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7fc43e51f600' of type 'MaiAtkType139'
+1596757753424	Marionette	INFO	Stopped listening on port 44519
+1596757762832	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.RxB2coYXxu8F"
+1596757766429	Marionette	INFO	Listening on port 37471
+1596757766460	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(firefox:12532): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7fcf0a81de70' of type 'MaiAtkType139'
+1596757774536	Marionette	INFO	Stopped listening on port 37471
+1596757779143	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.XwKaC13T05Ur"
+1596757782886	Marionette	INFO	Listening on port 37621
+1596757782955	Marionette	WARN	TLS certificate errors will be ignored for this session
+1596757788039	Marionette	INFO	Stopped listening on port 37621
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691: TypeError: this.tablesData[table] is undefined
+1596757792606	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.bGwFfiLBjdHg"
+1596757796827	Marionette	INFO	Listening on port 37799
+1596757796923	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(firefox:13033): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7feedb21a740' of type 'MaiAtkType139'
+1596757806648	Marionette	INFO	Stopped listening on port 37799
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1596757818099	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Sd8IjJs8NBlx"
+1596757822108	Marionette	INFO	Listening on port 35019
+1596757822123	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(firefox:13344): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7fd9dad67650' of type 'MaiAtkType139'
+
+(firefox:13344): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7fd9e07fd510' of type 'MaiAtkType139'
+1596757847011	Marionette	INFO	Stopped listening on port 35019
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1596757855048	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ypIMCRCc4sSw"
+1596757858603	Marionette	INFO	Listening on port 38915
+1596757858665	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(firefox:13680): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f27637e1650' of type 'MaiAtkType139'
+
+(firefox:13680): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f2761ba1f10' of type 'MaiAtkType139'
+1596757889791	Marionette	INFO	Stopped listening on port 38915
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1596757898377	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Fog9apc97kjI"
+1596757903037	Marionette	INFO	Listening on port 44591
+1596757903093	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(firefox:13988): GLib-GObject-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./gobject/gsignal.c:3486: signal name 'load_complete' is invalid for instance '0x7f2e782a9560' of type 'MaiAtkType139'
+1596757917226	Marionette	INFO	Stopped listening on port 44591
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+

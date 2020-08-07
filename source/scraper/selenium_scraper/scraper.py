@@ -193,7 +193,22 @@ class StackOverFlowScraper():
 			sleep(3)
 
 
-
+	def get_comment_data(self, page_frag):
+		comment_list = []
+		# inside layout_body: comments list
+		for comment in page_frag.xpath('.//div[contains(@class, "comment-text")]'):
+			comment_data = {}
+			# for comments inside comments list: comment text
+			comment_data['text'] = comment.xpath('.//div[contains(@class, "comment-body")]/span/text()').get()
+			# for comments inside comments list: comment author
+			comment_data['author'] = comment.xpath('.//div[contains(@class, "comment-body")]/a/text()').get()
+			# for comments inside comments list: relativetime
+			comment_data['date'] = comment.xpath('.//span[contains(@class, "relativetime")]/text()').get()
+			comment_list.append(comment_data)
+		return comment_list
+		
+	
+	
 
 	def parse_data(self, page, follow_user_data:bool=False):
 		'''
@@ -224,18 +239,8 @@ class StackOverFlowScraper():
 					data['question']['question_author_reputation'] = question_author_body.xpath('.//span[@class="reputation-score"]/text()').get()
 					# inside user_body: date
 					data['question']['question_date'] = question_author_body.xpath('.//span[@class="relativetime"]/text()').get()
-
-					comment_list = []
 					# inside layout_body: comments list
-					for comment in post.xpath('.//div[contains(@class, "comment-text")]'):
-						comment_data = {}
-						# for comments inside comments list: comment text
-						comment_data['text'] = comment.xpath('.//div[contains(@class, "comment-body")]/span/text()').get()
-						# for comments inside comments list: comment author
-						comment_data['author'] = comment.xpath('.//div[contains(@class, "comment-body")]/a/text()').get()
-						# for comments inside comments list: relativetime
-						comment_data['date'] = comment.xpath('.//span[contains(@class, "relativetime")]/text()').get()
-						comment_list.append(comment_data)
+					comment_list = self.get_comment_data(post)
 					data['question']['question_comments'] = comment_list
 
 				else:
@@ -246,16 +251,7 @@ class StackOverFlowScraper():
 					answer['author_link'] = answer_author_body.xpath('.//div[@class="user-details"]/a/@href').get()
 					answer['author_reputation'] = answer_author_body.xpath('.//span[@class="reputation-score"]/text()').get()
 					answer['date'] = answer_author_body.xpath('.//span[@class="relativetime"]/text()').get()
-					comment_list = []
-					for comment in post.xpath('.//div[contains(@class, "comment-text")]'):
-						comment_data = {}
-						# for comments inside comments list: comment text
-						comment_data['text'] = comment.xpath('.//div[contains(@class, "comment-body")]/span/text()').get()
-						# for comments inside comments list: comment author
-						comment_data['author'] = comment.xpath('.//div[contains(@class, "comment-body")]/a/text()').get()
-						# for comments inside comments list: relativetime
-						comment_data['date'] = comment.xpath('.//span[contains(@class, "relativetime")]/text()').get()
-						comment_list.append(comment_data)
+					comment_list = self.get_comment_data(post)
 					answer['comments'] = comment_list
 					all_answers.append(answer)
 			except Exception:
