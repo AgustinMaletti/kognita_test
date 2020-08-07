@@ -3,7 +3,196 @@
   <component name="ChangeListManager">
     <list default="true" id="e2ac5447-3849-4d04-a749-c776d88af32c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/Scrapy3-1.0.1.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/Scrapy3-1.0.1.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/Scrapy3-1.0.1.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/Scrapy3-1.0.1.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/Scrapy3-1.0.1.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/Scrapy3-1.0.1.dist-info/entry_points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/Scrapy3-1.0.1.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/VERSION" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/VERSION" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/_monkeypatches.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/cmdline.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/cmdline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/bench.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/bench.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/check.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/crawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/crawl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/edit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/fetch.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/fetch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/genspider.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/genspider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/list.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/parse.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/parse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/runspider.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/runspider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/shell.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/shell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/startproject.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/startproject.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/commands/view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/conf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/contracts/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/contracts/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/contracts/default.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/contracts/default.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/contextfactory.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/contextfactory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/datauri.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/datauri.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/file.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/ftp.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/ftp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/http.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/http.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/http10.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/http10.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/http11.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/http11.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/s3.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/handlers/s3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/middleware.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/tls.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/tls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/webclient.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/downloader/webclient.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/scheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/scheduler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/scraper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/spidermw.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/core/spidermw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/crawler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/ajaxcrawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/ajaxcrawl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/chunked.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/cookies.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/cookies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/decompression.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/decompression.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/defaultheaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/defaultheaders.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/downloadtimeout.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/downloadtimeout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/httpauth.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/httpauth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/httpcache.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/httpcache.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/httpcompression.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/httpcompression.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/httpproxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/httpproxy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/redirect.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/redirect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/retry.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/retry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/robotstxt.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/robotstxt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/stats.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/stats.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/useragent.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/downloadermiddlewares/useragent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/dupefilters.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/dupefilters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/exporters.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/exporters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extension.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extension.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/closespider.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/closespider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/corestats.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/corestats.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/debug.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/debug.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/feedexport.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/feedexport.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/httpcache.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/httpcache.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/logstats.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/logstats.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/memdebug.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/memdebug.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/memusage.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/memusage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/spiderstate.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/spiderstate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/statsmailer.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/statsmailer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/telnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/telnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/throttle.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/extensions/throttle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/cookies.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/cookies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/headers.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/headers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/request/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/request/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/request/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/request/form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/request/rpc.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/request/rpc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/response/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/response/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/response/html.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/response/html.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/response/text.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/response/text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/response/xml.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/http/response/xml.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/interfaces.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/interfaces.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/item.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/item.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/link.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/link.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/linkextractors/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/linkextractors/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/linkextractors/htmlparser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/linkextractors/lxmlhtml.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/linkextractors/lxmlhtml.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/linkextractors/regex.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/linkextractors/sgml.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/loader/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/loader/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/loader/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/loader/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/loader/processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/loader/processors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/log.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/logformatter.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/logformatter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/mail.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/mail.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/middleware.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/mime.types" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/mime.types" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/pipelines/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/pipelines/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/pipelines/files.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/pipelines/files.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/pipelines/images.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/pipelines/images.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/pipelines/media.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/pipelines/media.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/resolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/resolver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/responsetypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/responsetypes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/selector/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/selector/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/selector/csstranslator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/selector/lxmlsel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/selector/unified.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/selector/unified.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/settings/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/settings/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/settings/default_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/settings/default_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/settings/deprecated.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/shell.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/shell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/signalmanager.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/signalmanager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spiderloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spiderloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spidermiddlewares/depth.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spidermiddlewares/depth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spidermiddlewares/httperror.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spidermiddlewares/httperror.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spidermiddlewares/offsite.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spidermiddlewares/offsite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spidermiddlewares/referer.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spidermiddlewares/referer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spidermiddlewares/urllength.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spidermiddlewares/urllength.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spiders/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spiders/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spiders/crawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spiders/crawl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spiders/feed.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spiders/feed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spiders/init.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spiders/init.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spiders/sitemap.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/spiders/sitemap.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/squeues.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/squeues.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/statscollectors.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/statscollectors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/telnet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/project/module/items.py.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/project/module/items.py.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/project/module/middlewares.py.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/project/module/middlewares.py.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/project/module/pipelines.py.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/project/module/pipelines.py.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/project/module/settings.py.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/project/module/settings.py.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/project/module/spiders/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/project/module/spiders/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/project/scrapy.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/project/scrapy.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/spiders/basic.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/spiders/basic.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/spiders/crawl.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/spiders/crawl.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/spiders/csvfeed.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/spiders/csvfeed.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/spiders/xmlfeed.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/templates/spiders/xmlfeed.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/benchserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/benchserver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/boto.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/boto.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/console.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/console.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/datatypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/datatypes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/decorators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/defer.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/defer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/deprecate.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/deprecate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/display.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/display.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/ftp.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/ftp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/gz.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/gz.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/http.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/http.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/httpobj.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/httpobj.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/iterators.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/iterators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/job.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/job.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/markup.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/markup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/misc.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/misc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/multipart.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/multipart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/ossignal.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/ossignal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/project.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/project.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/python.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/python.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/reactor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/reactor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/reqser.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/reqser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/serialize.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/serialize.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/signal.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/signal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/sitemap.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/sitemap.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/spider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/template.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/template.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/testproc.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/testproc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/testsite.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/testsite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/trackref.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/trackref.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/versions.py" beforeDir="false" afterPath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/utils/versions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/xlib/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/xlib/pydispatch.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kognita_venv/lib/python3.7/site-packages/scrapy/xlib/tx.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +232,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/scraper.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="91">
@@ -59,10 +248,19 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="150">
-                <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+              <first_editor relative-caret-position="435">
+                <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -152,7 +350,6 @@
         <option value="$PROJECT_DIR$/kognita/scraper/selenium_scraper/test_path_resolve.py" />
         <option value="$PROJECT_DIR$/kognita/scraper/selenium_scraper/scraper.py" />
         <option value="$PROJECT_DIR$/kognita/main.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/spiders/stackOverflowSpider.py" />
         <option value="$PROJECT_DIR$/source/scraper/selenium_scraper/Spider.py" />
         <option value="$PROJECT_DIR$/source/scraper/selenium_scraper/scraper_class.py" />
@@ -172,6 +369,7 @@
         <option value="$PROJECT_DIR$/source/scraper/selenium_scraper/scraper.py" />
         <option value="$PROJECT_DIR$/source/main.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -193,30 +391,6 @@
             <path>
               <item name="kognita" type="b2602c69:ProjectViewProjectNode" />
               <item name="kognita" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kognita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kognita" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kognita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kognita" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kognita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kognita" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="scraper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kognita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kognita" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="scraper" type="462c0819:PsiDirectoryNode" />
-              <item name="selenium_scraper" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -253,14 +427,6 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_path_resolve">
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.test_path_resolve" />
-        <item itemvalue="Python.data" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -285,13 +451,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1023" y="0" width="1602" height="900" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20875634" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20875634" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" sideWeight="0.49935567" weight="0.32945737" />
       <window_info anchor="bottom" id="Python Console" order="1" sideWeight="0.49936548" weight="0.32945737" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="2" sideWeight="0.65482235" visible="true" weight="0.24031007" />
+      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.65482235" visible="true" weight="0.24031007" />
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.16941625" side_tool="true" weight="0.32945737" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
@@ -380,13 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/middlewares.py" />
     <entry file="file://$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/items.py" />
     <entry file="file://$PROJECT_DIR$/source/scraper/scrapy_scraper/stackoverflow/pipelines.py" />
@@ -468,16 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="150">
-            <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scraper/selenium_scraper/tests/tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1245">
@@ -512,6 +662,23 @@
           <folding>
             <element signature="e#1#31#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="435">
+            <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
         </state>
       </provider>
     </entry>

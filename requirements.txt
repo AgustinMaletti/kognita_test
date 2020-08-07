@@ -1,5 +1,6 @@
 selenium==3.141.0
 parsel==1.5.1
 flask==1.1.2
-scrapy3==1.0.1
+scrapy==2.3.0
 pandas==1.1.0
+requests==2.22.0

@@ -25,7 +25,13 @@ para configurar o coletor de dados.
 
 A segunda opção inicia uma api flask no localhost porto 5000.
 
-Os siguintes endpoints estão disponiveis:
+Tambem é possivel coletar dados usando a spider de scrapy, para isso deve se posicionar dentro da pasta spiders aonde se encontra o arquivo QuestionSpider.py,
+ali se corre o siguinte comando:
+
+* scrapy crawl QuestionSpider -o arquivo_novo.json -a tag=python
+
+
+Os siguintes endpoints estão disponiveis no Api:
 * GET /get_data/<author_name>
 
 * Retorna 200 e a seguinte estrutura de dados se existir author com perguntas:
